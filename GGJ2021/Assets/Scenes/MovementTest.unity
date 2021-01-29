@@ -217,10 +217,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground
       objectReference: {fileID: 0}
-    - target: {fileID: 2361868365768386041, guid: 8aeac32a64bcba140961d46d4bac707c, type: 3}
-      propertyPath: m_TagString
-      value: Ground
-      objectReference: {fileID: 0}
     - target: {fileID: 2361868365768386047, guid: 8aeac32a64bcba140961d46d4bac707c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -274,10 +270,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3368237868343346744, guid: 0943d0154a2dfe049b1e29e3de72feac, type: 3}
-      propertyPath: _jumpForce
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 3368237868343346748, guid: 0943d0154a2dfe049b1e29e3de72feac, type: 3}
       propertyPath: m_Name
       value: Player
