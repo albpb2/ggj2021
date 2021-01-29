@@ -22,7 +22,12 @@ namespace Player.State
         public IPlayerState Update()
         {
             _playerController.SetMovement(new Vector2(_inputHandler.GetHorizontalAxisValue(), 0));
+
+            if (ShouldJump())
+                _playerController.Jump();
             return this;
         }
+
+        private bool ShouldJump() => _playerController.IsGrounded && _inputHandler.IsJumpPressed();
     }
 }

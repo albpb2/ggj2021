@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float _velocity;
+    [SerializeField] private float _velocity = 1;
+    [SerializeField] private float _jumpForce = 1;
     
     private PlayerStateProvider _playerStateProvider;
     private InputHandler _inputHandler;
@@ -13,6 +14,9 @@ public class PlayerController : MonoBehaviour
 
     private IPlayerState _state;
     private Vector2 _movement;
+    private bool _isGrounded;
+
+    public bool IsGrounded => _isGrounded;
 
     private void Awake()
     {
@@ -25,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _state = _playerStateProvider.GetWalkingState();
+        _isGrounded = true;
     }
 
     private void Update()
@@ -34,9 +39,27 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log($"Force: {_movement}");
-        _rigidbody.velocity = _velocity * _movement;
+        var horizontalVelocity = _movement.x * _velocity;
+        _rigidbody.velocity = new Vector2(horizontalVelocity, _rigidbody.velocity.y);
     }
 
     public void SetMovement(Vector2 movement) => _movement = movement;
+
+    public void Jump() => _rigidbody.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag(Tags.Ground))
+        {
+            _isGrounded = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag(Tags.Ground))
+        {
+            _isGrounded = false;
+        }
+    }
 }

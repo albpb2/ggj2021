@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
+using UnityInput = UnityEngine.Input;
 
 namespace Input
 {
     public class InputHandler : MonoBehaviour
     {
-        public float GetHorizontalAxisValue() => UnityEngine.Input.GetAxis(InputNames.Horizontal);
-        public bool IsForwardPressed() => GetHorizontalAxisValue() > 0;
-        public bool BackPressed() => GetHorizontalAxisValue() < 0;
+        public float GetHorizontalAxisValue() => UnityInput.GetAxis(InputNames.HorizontalAxis);
+        public bool IsJumpPressed() => UnityInput.GetButtonDown(InputNames.Jump);
     }
 }
