@@ -1,11 +1,16 @@
-﻿using Input;
+﻿using System;
+using Input;
 using Player.State;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private const float GroundCheckRadius = .01f;
+    
     [SerializeField] private float _velocity = 1;
     [SerializeField] private float _jumpForce = 1;
+    [SerializeField] private Transform _groundDetector;
+    [SerializeField] private LayerMask _groundLayer;
     
     private PlayerStateProvider _playerStateProvider;
     private InputHandler _inputHandler;
@@ -49,7 +54,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag(Tags.Ground))
+        if (other.gameObject.CompareTag(Tags.Ground) && Physics2D.OverlapCircle(_groundDetector.position, GroundCheckRadius, _groundLayer))
         {
             _isGrounded = true;
         }
@@ -57,7 +62,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag(Tags.Ground))
+        if (other.gameObject.CompareTag(Tags.Ground) && !Physics2D.OverlapCircle(_groundDetector.position, GroundCheckRadius, _groundLayer))
         {
             _isGrounded = false;
         }
