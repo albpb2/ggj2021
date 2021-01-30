@@ -1,43 +1,46 @@
 ﻿using Input;
-using UnityEngine;
 
 namespace Player.State
 {
-    public class WalkingPlayerState : PlayerStateBase
+    public class IdlePlayerState : PlayerStateBase
     {
         private PlayerController _playerController;
         private InputHandler _inputHandler;
         private PlayerStateProvider _playerStateProvider;
         
-        public WalkingPlayerState(
-            PlayerController playerController,
+        public IdlePlayerState(
+            PlayerController playerController, 
             InputHandler inputHandler,
-            PlayerStateProvider playerStateProvider) 
+            PlayerStateProvider playerStateProvider)
             : base(playerController, inputHandler)
         {
             _playerController = playerController;
             _inputHandler = inputHandler;
             _playerStateProvider = playerStateProvider;
         }
-        
+
         public override IPlayerState EnterState()
         {
-            _playerController.TriggerAnimation(PlayerAnimationTriggers.WalkingStateEntered);
+            _playerController.TriggerAnimation(PlayerAnimationTriggers.IdleStateEntered);
             return this;
         }
 
         public override IPlayerState Update()
         {
-            _playerController.SetMovement(new Vector2(_inputHandler.GetHorizontalAxisValue(), 0));
+            if (IsMovingHorizontally())
+                return _playerStateProvider.GetWalkingState();
 
             if (ShouldJump())
+            {
                 _playerController.Jump();
+                return this;
+            }
 
             if (ShouldShoot())
+            {
                 _playerController.Shoot();
-
-            if (!IsMovingHorizontally())
-                return _playerStateProvider.GetIdleState();
+                return this;
+            }
 
             return this;
         }

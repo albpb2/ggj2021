@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private InputHandler _inputHandler;
     
     private Rigidbody2D _rigidbody;
-    private SpriteRenderer _spriteRenderer;
+    private Animator _animator;
 
     private IPlayerState _state;
     private Vector2 _movement;
@@ -32,11 +32,12 @@ public class PlayerController : MonoBehaviour
         _playerStateProvider = new PlayerStateProvider(this, _inputHandler);
 
         _rigidbody = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Start()
     {
-        _state = _playerStateProvider.GetWalkingState();
+        _state = _playerStateProvider.GetIdleState();
         _isGrounded = true;
         _lookingRight = true;
     }
@@ -61,6 +62,11 @@ public class PlayerController : MonoBehaviour
     {
         if (_equippedGun != null)
             _equippedGun.Shoot(_shootingPoint, transform.right);
+    }
+
+    public void TriggerAnimation(string triggerName)
+    {
+        _animator.SetTrigger(triggerName);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
