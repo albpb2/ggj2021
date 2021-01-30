@@ -10,7 +10,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _velocity = 1;
     [SerializeField] private float _jumpForce = 1;
     [SerializeField] private Transform _groundDetector;
+    [SerializeField] private Transform _shootingPoint;
     [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private Gun _equippedGun;
     
     private PlayerStateProvider _playerStateProvider;
     private InputHandler _inputHandler;
@@ -51,6 +53,12 @@ public class PlayerController : MonoBehaviour
     public void SetMovement(Vector2 movement) => _movement = movement;
 
     public void Jump() => _rigidbody.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+
+    public void Shoot()
+    {
+        if (_equippedGun != null)
+            _equippedGun.Shoot(_shootingPoint);
+    }
 
     private void OnCollisionEnter2D(Collision2D other)
     {

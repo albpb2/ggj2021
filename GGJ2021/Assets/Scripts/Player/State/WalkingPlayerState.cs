@@ -24,10 +24,22 @@ namespace Player.State
             _playerController.SetMovement(new Vector2(_inputHandler.GetHorizontalAxisValue(), 0));
 
             if (ShouldJump())
+            {
                 _playerController.Jump();
+                return this;
+            }
+
+            if (ShouldShoot())
+            {
+                _playerController.Shoot();
+                return this;
+            }
+
             return this;
         }
 
         private bool ShouldJump() => _playerController.IsGrounded && _inputHandler.IsJumpPressed();
+        
+        private bool ShouldShoot() => _inputHandler.IsFire1Pressed();
     }
 }
