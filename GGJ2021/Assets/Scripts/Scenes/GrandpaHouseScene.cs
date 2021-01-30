@@ -6,10 +6,14 @@ using UnityEngine.SceneManagement;
 public class GrandpaHouseScene : MonoBehaviour
 {
     private InputHandler _inputHandler;
+    private GrandpaAndKidConversation _grandpaAndKidConversation;
 
     private void Start()
     {
         _inputHandler = FindObjectOfType<InputHandler>();
+        _grandpaAndKidConversation = FindObjectOfType<GrandpaAndKidConversation>();
+        
+        _grandpaAndKidConversation.StartCinematic();
     }
 
     private void Update()
