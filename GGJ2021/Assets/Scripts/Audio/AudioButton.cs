@@ -1,4 +1,5 @@
-﻿using FMODUnity;
+﻿using System;
+using FMODUnity;
 using UnityEngine;
 
 namespace Audio
@@ -9,12 +10,19 @@ namespace Audio
         
         private bool _playing;
 
+        private void Awake()
+        {
+            _studioEventEmitter = GetComponent<StudioEventEmitter>();
+        }
+
         public void PlayOrStop()
         {
             if (_playing)
                 _studioEventEmitter.Stop();
             else
                 _studioEventEmitter.Play();
+
+            _playing = !_playing;
         }
     }
 }
