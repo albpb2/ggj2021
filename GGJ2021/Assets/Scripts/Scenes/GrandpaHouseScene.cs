@@ -3,7 +3,7 @@ using Scenes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class IntroScene : MonoBehaviour
+public class GrandpaHouseScene : MonoBehaviour
 {
     private InputHandler _inputHandler;
 
@@ -15,7 +15,7 @@ public class IntroScene : MonoBehaviour
     private void Update()
     {
         if (ShouldLoadNextScene())
-            SceneManager.LoadScene(SceneIds.GrandpaHouse);
+            SceneManager.LoadScene(SceneIds.MovementTest);
     }
 
     private bool ShouldLoadNextScene() => _inputHandler.IsAnyButtonPressed();
