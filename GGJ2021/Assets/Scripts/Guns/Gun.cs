@@ -7,14 +7,13 @@ public class Gun : MonoBehaviour
 
     private float _lastShootTime;
 
-    public void Shoot(Transform shootPoint)
+    public void Shoot(Transform shootPoint, Vector2 direction)
     {
         if (!CanShoot())
             return;
         
         var projectile = _projectilePool.GetNextProjectile();
-        projectile.transform.position = shootPoint.position;
-        projectile.gameObject.SetActive(true);
+        projectile.Shoot(shootPoint.position, direction);
     }
 
     private bool CanShoot()

@@ -1,5 +1,4 @@
-﻿using System;
-using Input;
+﻿using Input;
 using Player.State;
 using UnityEngine;
 
@@ -18,10 +17,12 @@ public class PlayerController : MonoBehaviour
     private InputHandler _inputHandler;
     
     private Rigidbody2D _rigidbody;
+    private SpriteRenderer _spriteRenderer;
 
     private IPlayerState _state;
     private Vector2 _movement;
     private bool _isGrounded;
+    private bool _lookingRight;
 
     public bool IsGrounded => _isGrounded;
 
@@ -37,11 +38,13 @@ public class PlayerController : MonoBehaviour
     {
         _state = _playerStateProvider.GetWalkingState();
         _isGrounded = true;
+        _lookingRight = true;
     }
 
     private void Update()
     {
         _state = _state.Update();
+        FixOrientation();
     }
 
     private void FixedUpdate()
@@ -57,7 +60,7 @@ public class PlayerController : MonoBehaviour
     public void Shoot()
     {
         if (_equippedGun != null)
-            _equippedGun.Shoot(_shootingPoint);
+            _equippedGun.Shoot(_shootingPoint, transform.right);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -74,5 +77,17 @@ public class PlayerController : MonoBehaviour
         {
             _isGrounded = false;
         }
+    }
+
+    private void FixOrientation()
+    {
+        if (_lookingRight && _movement.x < 0 || !_lookingRight && _movement.x > 0)
+            Flip();
+    }
+
+    private void Flip()
+    {
+        _lookingRight = !_lookingRight;
+        transform.Rotate(0f, 180f, 0f);
     }
 }

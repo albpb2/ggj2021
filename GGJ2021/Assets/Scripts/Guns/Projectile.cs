@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -6,15 +6,10 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float _speed;
     
     private Rigidbody2D _rigidbody;
-
+    
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-    }
-
-    private void OnEnable()
-    {
-        Move();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -22,13 +17,24 @@ public class Projectile : MonoBehaviour
         Disable();
     }
 
-    private void Move()
+    public void Shoot(Vector2 origin, Vector2 direction)
     {
-        _rigidbody.velocity = transform.right * _speed;
+        transform.position = origin;
+        gameObject.SetActive(true);
+        _rigidbody.velocity = direction * _speed;
+        StartCoroutine(DisableAfterTime());
+    }
+
+    private IEnumerator DisableAfterTime()
+    {
+        const int millisecondsDuration = 500;
+        yield return new WaitForSeconds(millisecondsDuration / 1000f);
+        Disable();
     }
 
     private void Disable()
     {
+        StopAllCoroutines();
         gameObject.SetActive(false);
     }
 }
