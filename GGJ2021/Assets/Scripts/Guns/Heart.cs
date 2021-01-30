@@ -7,40 +7,50 @@ namespace Guns
 {
     public class Heart : MonoBehaviour
     {
+        [SerializeField] private AnimationClip[] _leftAnimations;
+        [SerializeField] private AnimationClip[] _rightAnimations;
+        
         private Random _random;
         
         private Rigidbody2D _rigidbody;
+        private Animator _animator;
 
-        private bool _applyRightForce;
+        private bool _movingRight;
 
         private void Awake()
         {
             _random = new Random();
             
             _rigidbody = GetComponent<Rigidbody2D>();
-
-            StartCoroutine(ApplyRandomForces());
+            _animator = GetComponent<Animator>();
         }
 
-        private IEnumerator ApplyRandomForces()
+        private void Start()
         {
-            while (true)
+            StartNextAnimation();
+        }
+
+        public void StartNextAnimation()
+        {
+            var sourceAnimations = _movingRight ? _rightAnimations : _leftAnimations;
+            var animation = SelectAnimation(sourceAnimations);
+            Debug.Log($"Gonna play {animation.name}");
+            _animator.SetTrigger($"Play{animation.name}");
+            _movingRight = !_movingRight;
+        }
+
+        private AnimationClip SelectAnimation(AnimationClip[] animations)
+        {
+            var animationIndex = _random.Next(0, animations.Length);
+            return animations[animationIndex];
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (other.gameObject.CompareTag(Tags.Ground))
             {
-                var randomTimeSeconds = _random.Next(2, 4);
-                yield return new WaitForSeconds(randomTimeSeconds);
-                var randomForceMagnitudeBase = _random.NextDouble();
-                var randomForceMagnitude = 0.5 + 2.5 * randomForceMagnitudeBase;
-                if (!_applyRightForce)
-                    randomForceMagnitude *= -1;
-                _rigidbody.AddForce(new Vector2((float)randomForceMagnitude, .1f), ForceMode2D.Impulse);
-                _applyRightForce = !_applyRightForce;
+                StartNextAnimation();
             }
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.CompareTag(Tags.Ground))
-                Destroy(gameObject);
         }
     }
 }
