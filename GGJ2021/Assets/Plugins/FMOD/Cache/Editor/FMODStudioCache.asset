@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7512316760952718072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: "F:/Antiguo y Nuevo/Trabajos Extraacad\xE9-micos/Madrid GGJAM2021/Proyecto
+    YAYO/INTEGRACI\xD3N/CNTR_ALT_SUP/Build/Desktop/Master.strings.bank"
+  Name: Master.strings
+  lastModified: 637476380980588020
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 734
+  Exists: 1
+--- !u!114 &-7333598533151608515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/YAYO MAIN
+  m_EditorClassIdentifier: 
+  Path: event:/YAYO MAIN
+  guid: 1754c39b4c954c49b93fb8d636a2ceda
+  Banks:
+  - {fileID: -2578287040416701368}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 76000
+--- !u!114 &-2578287040416701368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: "F:/Antiguo y Nuevo/Trabajos Extraacad\xE9-micos/Madrid GGJAM2021/Proyecto
+    YAYO/INTEGRACI\xD3N/CNTR_ALT_SUP/Build/Desktop/Master.bank"
+  Name: Master
+  lastModified: 637476380980458327
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 882144
+  Exists: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: -7512316760952718072}
+  - {fileID: -2578287040416701368}
+  EditorEvents:
+  - {fileID: -7333598533151608515}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: -2578287040416701368}
+  StringsBanks:
+  - {fileID: -7512316760952718072}
+  stringsBankWriteTime: 637476380980588020
+  cacheVersion: 4
