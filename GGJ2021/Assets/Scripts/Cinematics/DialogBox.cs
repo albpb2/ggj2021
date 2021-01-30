@@ -1,5 +1,6 @@
 ﻿using System;
 using Input;
+using Pause;
 using TMPro;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ namespace Cinematics
     public class DialogBox : MonoBehaviour
     {
         private InputHandler _inputHandler;
+        private PauseManager _pauseManager;
         
         private TMP_Text _textBox;
         
@@ -24,13 +26,14 @@ namespace Cinematics
         private void Start()
         {
             _inputHandler = FindObjectOfType<InputHandler>();
+            _pauseManager = FindObjectOfType<PauseManager>();
 
             _textBox = GetComponent<TMP_Text>();
         }
 
         private void Update()
         {
-            if (Time.timeScale <= 0.01)
+            if (_pauseManager.IsPaused())
                 return;
             
             if (!Finished && _inputHandler.IsAnyButtonPressed())

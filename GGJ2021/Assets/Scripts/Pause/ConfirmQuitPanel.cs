@@ -1,6 +1,4 @@
-﻿using System;
-using Input;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -8,20 +6,19 @@ namespace Pause
 {
     public class ConfirmQuitPanel : MonoBehaviour
     {
+        public delegate void QuitCancelledEventHandler();
+        public event QuitCancelledEventHandler OnQuitCancelled;
+        
         [SerializeField] private Button _cancelButton;
 
-        private InputHandler _inputHandler;
-
-        private void Start()
+        private void OnEnable()
         {
-            _inputHandler = FindObjectOfType<InputHandler>();
             _cancelButton.onClick.AddListener(Disable);
         }
 
-        private void Update()
+        private void OnDisable()
         {
-            if (_inputHandler.IsPauseButtonPressed())
-                Disable();
+            _cancelButton.onClick.RemoveListener(Disable);
         }
 
         public void Enable()
@@ -33,8 +30,8 @@ namespace Pause
 
         public void Disable()
         {
-            _cancelButton.onClick.RemoveListener(Disable);
             gameObject.SetActive(false);
+            OnQuitCancelled?.Invoke();
         }
     }
 }
