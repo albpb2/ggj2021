@@ -1,4 +1,5 @@
-﻿using Input;
+﻿using System;
+using Input;
 using Player.State;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class PlayerController : MonoBehaviour
     
     [SerializeField] private float _velocity = 1;
     [SerializeField] private float _jumpForce = 1;
+    [SerializeField] private int _healthPoints = 100;
     [SerializeField] private Transform _groundDetector;
     [SerializeField] private Transform _shootingPoint;
     [SerializeField] private LayerMask _groundLayer;
@@ -69,6 +71,16 @@ public class PlayerController : MonoBehaviour
         _animator.SetTrigger(triggerName);
     }
 
+    public void Hurt(int damage)
+    {
+        _healthPoints -= damage;
+        _healthPoints = Math.Max(_healthPoints, 0);
+        if (_healthPoints == 0)
+        {
+            Die();
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag(Tags.Ground) && Physics2D.OverlapCircle(_groundDetector.position, GroundCheckRadius, _groundLayer))
@@ -95,5 +107,10 @@ public class PlayerController : MonoBehaviour
     {
         _lookingRight = !_lookingRight;
         transform.Rotate(0f, 180f, 0f);
+    }
+
+    private void Die()
+    {
+        Debug.Log("I'm dead");
     }
 }

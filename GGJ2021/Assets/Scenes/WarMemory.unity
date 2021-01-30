@@ -768,6 +768,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 391a0072bb3861b43aaedcafe2d3b726, type: 3}
+--- !u!1001 &5022866176510486269
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5022866174967960768, guid: 2928d19f06ca06b4ab90c2da8d1bec29, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022866174967960768, guid: 2928d19f06ca06b4ab90c2da8d1bec29, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.96800005
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022866174967960768, guid: 2928d19f06ca06b4ab90c2da8d1bec29, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.1319997
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022866174967960768, guid: 2928d19f06ca06b4ab90c2da8d1bec29, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022866174967960768, guid: 2928d19f06ca06b4ab90c2da8d1bec29, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022866174967960768, guid: 2928d19f06ca06b4ab90c2da8d1bec29, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022866174967960768, guid: 2928d19f06ca06b4ab90c2da8d1bec29, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022866174967960768, guid: 2928d19f06ca06b4ab90c2da8d1bec29, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022866174967960768, guid: 2928d19f06ca06b4ab90c2da8d1bec29, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022866174967960768, guid: 2928d19f06ca06b4ab90c2da8d1bec29, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022866174967960768, guid: 2928d19f06ca06b4ab90c2da8d1bec29, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022866174967960774, guid: 2928d19f06ca06b4ab90c2da8d1bec29, type: 3}
+      propertyPath: m_Name
+      value: ExplosionPool
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2928d19f06ca06b4ab90c2da8d1bec29, type: 3}
 --- !u!1001 &7946886695402658976
 PrefabInstance:
   m_ObjectHideFlags: 0
