@@ -12,7 +12,7 @@ public class Gun : MonoBehaviour
         if (!CanShoot())
             return;
         
-        var projectile = _projectilePool.GetNextProjectile();
+        var projectile = _projectilePool.GetNextItem();
         projectile.Shoot(shootPoint.position, direction);
     }
 
