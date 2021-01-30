@@ -6,6 +6,7 @@ namespace Input
     public class InputHandler : MonoBehaviour
     {
         public float GetHorizontalAxisValue() => UnityInput.GetAxis(InputNames.HorizontalAxis);
+        public float GetVerticalAxisValue() => UnityInput.GetAxis(InputNames.VerticalAxis);
         public bool IsJumpPressed() => UnityInput.GetButtonDown(InputNames.Jump);
         public bool IsFire1Pressed() => UnityInput.GetButtonDown(InputNames.Fire1);
         public bool IsAnyButtonPressed() => UnityInput.anyKeyDown;

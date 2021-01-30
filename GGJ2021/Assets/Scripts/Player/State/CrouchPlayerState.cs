@@ -1,13 +1,14 @@
 ﻿using Input;
-using UnityEngine;
 
 namespace Player.State
 {
-    public class WalkingPlayerState : PlayerStateBase
+    public class CrouchPlayerState : PlayerStateBase
     {
+        private PlayerController _playerController;
+        private InputHandler _inputHandler;
         private PlayerStateProvider _playerStateProvider;
         
-        public WalkingPlayerState(
+        public CrouchPlayerState(
             PlayerController playerController,
             InputHandler inputHandler,
             PlayerStateProvider playerStateProvider) 
@@ -15,28 +16,26 @@ namespace Player.State
         {
             _playerStateProvider = playerStateProvider;
         }
-        
+
         public override IPlayerState EnterState()
         {
-            PlayerController.TriggerAnimation(PlayerAnimationTriggers.WalkingStateEntered);
+            PlayerController.TriggerAnimation(PlayerAnimationTriggers.CrouchStateEntered);
             return this;
         }
 
         public override IPlayerState Update()
         {
-            if (!IsMovingHorizontally())
+            if (!ShouldCrouch())
                 return _playerStateProvider.GetIdleState();
 
-            if (ShouldCrouch())
+            if (IsMovingHorizontally())
                 return _playerStateProvider.GetMovingCrouchState();
-            
-            PlayerController.SetMovement(new Vector2(InputHandler.GetHorizontalAxisValue(), 0));
-
-            if (ShouldJump())
-                PlayerController.Jump();
 
             if (ShouldShoot())
+            {
                 PlayerController.Shoot();
+                return this;
+            }
 
             return this;
         }

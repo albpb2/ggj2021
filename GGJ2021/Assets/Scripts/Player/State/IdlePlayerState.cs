@@ -4,8 +4,6 @@ namespace Player.State
 {
     public class IdlePlayerState : PlayerStateBase
     {
-        private PlayerController _playerController;
-        private InputHandler _inputHandler;
         private PlayerStateProvider _playerStateProvider;
         
         public IdlePlayerState(
@@ -14,14 +12,12 @@ namespace Player.State
             PlayerStateProvider playerStateProvider)
             : base(playerController, inputHandler)
         {
-            _playerController = playerController;
-            _inputHandler = inputHandler;
             _playerStateProvider = playerStateProvider;
         }
 
         public override IPlayerState EnterState()
         {
-            _playerController.TriggerAnimation(PlayerAnimationTriggers.IdleStateEntered);
+            PlayerController.TriggerAnimation(PlayerAnimationTriggers.IdleStateEntered);
             return this;
         }
 
@@ -30,15 +26,18 @@ namespace Player.State
             if (IsMovingHorizontally())
                 return _playerStateProvider.GetWalkingState();
 
+            if (ShouldCrouch())
+                return _playerStateProvider.GetCrouchState();
+
             if (ShouldJump())
             {
-                _playerController.Jump();
+                PlayerController.Jump();
                 return this;
             }
 
             if (ShouldShoot())
             {
-                _playerController.Shoot();
+                PlayerController.Shoot();
                 return this;
             }
 

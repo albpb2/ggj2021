@@ -20,9 +20,10 @@ public class GameObjectPool<T> : MonoBehaviour where T : MonoBehaviour
 
     public T GetNextItem()
     {
-        var nextItem =  _items[_currentItemIndex++];
+        var nextItem= _items[_currentItemIndex];
 
-        _currentItemIndex = _currentItemIndex % _numOfItems;
+        _currentItemIndex++;
+        _currentItemIndex %= _numOfItems;
 
         return nextItem;
     } 

@@ -198,7 +198,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -240,6 +240,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3368237867275320879, guid: 0943d0154a2dfe049b1e29e3de72feac, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.023
+      objectReference: {fileID: 0}
     - target: {fileID: 3368237868343346748, guid: 0943d0154a2dfe049b1e29e3de72feac, type: 3}
       propertyPath: m_Name
       value: Player
@@ -305,6 +309,10 @@ PrefabInstance:
     - target: {fileID: 7639188042258436220, guid: 9ab3880cc1e72c14187603e1ec31eaab, type: 3}
       propertyPath: m_Name
       value: PausePanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7639188042258436220, guid: 9ab3880cc1e72c14187603e1ec31eaab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7639188042258436221, guid: 9ab3880cc1e72c14187603e1ec31eaab, type: 3}
       propertyPath: m_Pivot.x
@@ -522,6 +530,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5240332103444581840, guid: d923b23f8a587424796a018c78e36a1f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5240332103444581841, guid: d923b23f8a587424796a018c78e36a1f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.62
@@ -887,18 +899,6 @@ PrefabInstance:
     - target: {fileID: 7946886695337723849, guid: 3cde7267a96e7e14c9e516a8b4b0dbe8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7946886695337723850, guid: 3cde7267a96e7e14c9e516a8b4b0dbe8, type: 3}
-      propertyPath: _maxSecondsBetweenBombs
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7946886695337723850, guid: 3cde7267a96e7e14c9e516a8b4b0dbe8, type: 3}
-      propertyPath: _minSecondsBetweenBombs
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7946886695337723850, guid: 3cde7267a96e7e14c9e516a8b4b0dbe8, type: 3}
-      propertyPath: _secondsToReachFullBombSpeed
-      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cde7267a96e7e14c9e516a8b4b0dbe8, type: 3}

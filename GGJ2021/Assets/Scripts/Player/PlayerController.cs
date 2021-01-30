@@ -85,6 +85,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag(Tags.Ground) && Physics2D.OverlapCircle(_groundDetector.position, GroundCheckRadius, _groundLayer))
         {
+            Debug.Log("Is grounded");
             _isGrounded = true;
         }
     }
@@ -93,6 +94,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag(Tags.Ground) && !Physics2D.OverlapCircle(_groundDetector.position, GroundCheckRadius, _groundLayer))
         {
+            Debug.Log("It's not grounded");
             _isGrounded = false;
         }
     }

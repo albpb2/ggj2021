@@ -3,11 +3,13 @@ using UnityEngine;
 
 namespace Player.State
 {
-    public class WalkingPlayerState : PlayerStateBase
+    public class MovingCrouchPlayerState : PlayerStateBase
     {
+        private PlayerController _playerController;
+        private InputHandler _inputHandler;
         private PlayerStateProvider _playerStateProvider;
         
-        public WalkingPlayerState(
+        public MovingCrouchPlayerState(
             PlayerController playerController,
             InputHandler inputHandler,
             PlayerStateProvider playerStateProvider) 
@@ -15,25 +17,22 @@ namespace Player.State
         {
             _playerStateProvider = playerStateProvider;
         }
-        
+
         public override IPlayerState EnterState()
         {
-            PlayerController.TriggerAnimation(PlayerAnimationTriggers.WalkingStateEntered);
+            PlayerController.TriggerAnimation(PlayerAnimationTriggers.MovingCrouchStateEntered);
             return this;
         }
 
         public override IPlayerState Update()
         {
-            if (!IsMovingHorizontally())
-                return _playerStateProvider.GetIdleState();
+            if (!ShouldCrouch())
+                return _playerStateProvider.GetWalkingState();
 
-            if (ShouldCrouch())
-                return _playerStateProvider.GetMovingCrouchState();
+            if (!IsMovingHorizontally())
+                return _playerStateProvider.GetCrouchState();
             
             PlayerController.SetMovement(new Vector2(InputHandler.GetHorizontalAxisValue(), 0));
-
-            if (ShouldJump())
-                PlayerController.Jump();
 
             if (ShouldShoot())
                 PlayerController.Shoot();
