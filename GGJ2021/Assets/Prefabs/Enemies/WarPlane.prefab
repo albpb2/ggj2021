@@ -190,11 +190,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 747ef71a02b5489c8428ea057aeaeade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1
+  _speed: 4
   _bombDropPoints:
   - {fileID: 7946886695988772359}
   - {fileID: 7946886694907154289}
   - {fileID: 7946886694106218251}
+  _distanceWithPlayer: 0.8
+  _minSecondsBetweenBombs: 0.5
+  _maxSecondsBetweenBombs: 2
+  _secondsToReachFullBombSpeed: 30
 --- !u!50 &7946886695337723851
 Rigidbody2D:
   serializedVersion: 4

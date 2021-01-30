@@ -5,6 +5,10 @@ public class WarPlane : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private Transform[] _bombDropPoints;
+    [SerializeField] private float _distanceWithPlayer;
+    [SerializeField] private float _minSecondsBetweenBombs;
+    [SerializeField] private float _maxSecondsBetweenBombs;
+    [SerializeField] private float _secondsToReachFullBombSpeed;
     
     private PlayerController _playerController;
     private PlaneBombPool _bombPool;
@@ -14,7 +18,7 @@ public class WarPlane : MonoBehaviour
     private Vector2 _targetPosition;
     private float _verticalPosition;
     private int _currentBombDropPosition;
-    
+
     private void Start()
     {
         _playerController = FindObjectOfType<PlayerController>();
@@ -33,20 +37,19 @@ public class WarPlane : MonoBehaviour
 
     private Vector2 CalculateNextPosition(float deltaTime)
     {
-        var positionAbovePlayer = new Vector2(_playerController.transform.position.x, _verticalPosition);
+        var positionAbovePlayer = new Vector2(_playerController.transform.position.x + _distanceWithPlayer, _verticalPosition);
         return Vector2.Lerp(transform.position, positionAbovePlayer, deltaTime * _speed);
     }
 
     private IEnumerator DropBombs()
     {
-        const float mintTimeBetweenBombs = 0.5f;
         var timeBetweenBombs = CalculateTimeBetweenBombs();
         while (true)
         {
             yield return new WaitForSeconds(timeBetweenBombs);
 
             DropBomb();
-            if (timeBetweenBombs > mintTimeBetweenBombs)
+            if (timeBetweenBombs > _minSecondsBetweenBombs)
                 timeBetweenBombs = CalculateTimeBetweenBombs();
         }
     }
@@ -58,10 +61,10 @@ public class WarPlane : MonoBehaviour
         _currentBombDropPosition %= _bombDropPoints.Length;
     }
 
-    private static float CalculateTimeBetweenBombs()
+    private float CalculateTimeBetweenBombs()
     {
-        const float maxTimeBetweenBombs = 3;
-        // Reduce the frequency by .5 seconds every 10 seconds
-        return maxTimeBetweenBombs - Time.timeSinceLevelLoad * 0.05f;
+        var delta = (_maxSecondsBetweenBombs - _minSecondsBetweenBombs) 
+            * Time.timeSinceLevelLoad / _secondsToReachFullBombSpeed;
+        return _maxSecondsBetweenBombs - delta;
     }
 }

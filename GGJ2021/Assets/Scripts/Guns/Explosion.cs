@@ -25,8 +25,6 @@ public class Explosion : MonoBehaviour
     // Used from animation
     public void TryHurtPlayer()
     {
-        var distanceWithPlayer = Vector2.Distance(transform.position, _playerController.transform.position);
-        Debug.Log($"Distance with player: {distanceWithPlayer}");
         if (Vector2.Distance(transform.position, _playerController.transform.position) < _maxDistanceToHurtPlayer)
         {
             _playerController.Hurt(_damage);
