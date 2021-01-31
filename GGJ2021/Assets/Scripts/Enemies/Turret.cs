@@ -1,5 +1,6 @@
 ﻿using Pause;
 using UnityEngine;
+using Random = System.Random;
 
 namespace Enemies
 {
@@ -8,24 +9,29 @@ namespace Enemies
         [SerializeField] private Transform _shootingPoint;
         [SerializeField] private LayerMask _playerLayer;
         [SerializeField] private float _range;
-        [SerializeField] private float _playerCheckFrequencySeconds;
+        [SerializeField] private float _minPlayerCheckFrequencySeconds;
+        [SerializeField] private float _maxPlayerCheckFrequencySeconds;
         [SerializeField] private ProjectilePool _projectilePool;
 
         private PauseManager _pauseManager;
+        private Random _random;
 
         private Animator _animator;
 
         private Vector2 _shootingPointPosition;
         private float _lastCheckTime;
         private bool _playerWasVisible;
+        private float _nextPlayerCheck;
 
         private void Start()
         {
             _pauseManager = FindObjectOfType<PauseManager>();
+            _random = new Random();
 
             _animator = GetComponent<Animator>();
             
             _shootingPointPosition = _shootingPoint.position;
+            _nextPlayerCheck = _maxPlayerCheckFrequencySeconds;
         }
 
         public void Update()
@@ -33,7 +39,7 @@ namespace Enemies
             if (_pauseManager.IsPaused())
                 return;
 
-            if (Time.time - _lastCheckTime >= _playerCheckFrequencySeconds)
+            if (Time.time - _lastCheckTime >= _nextPlayerCheck)
             {
                 var playerIsVisible = IsPlayerVisible();
                 if (playerIsVisible)
@@ -42,6 +48,10 @@ namespace Enemies
                 UpdateAnimation(playerIsVisible);
 
                 _lastCheckTime = Time.time;
+
+                _nextPlayerCheck = _minPlayerCheckFrequencySeconds +
+                                   (float)_random.NextDouble() *
+                                    (_maxPlayerCheckFrequencySeconds - _minPlayerCheckFrequencySeconds);
             }
         }
 
