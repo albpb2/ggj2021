@@ -1,0 +1,686 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!29 &1
+OcclusionCullingSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_OcclusionBakeSettings:
+    smallestOccluder: 5
+    smallestHole: 0.25
+    backfaceThreshold: 100
+  m_SceneGUID: 00000000000000000000000000000000
+  m_OcclusionCullingData: {fileID: 0}
+--- !u!104 &2
+RenderSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 9
+  m_Fog: 0
+  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogMode: 3
+  m_FogDensity: 0.01
+  m_LinearFogStart: 0
+  m_LinearFogEnd: 300
+  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
+  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientIntensity: 1
+  m_AmbientMode: 3
+  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SkyboxMaterial: {fileID: 0}
+  m_HaloStrength: 0.5
+  m_FlareStrength: 1
+  m_FlareFadeSpeed: 3
+  m_HaloTexture: {fileID: 0}
+  m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
+  m_DefaultReflectionMode: 0
+  m_DefaultReflectionResolution: 128
+  m_ReflectionBounces: 1
+  m_ReflectionIntensity: 1
+  m_CustomReflection: {fileID: 0}
+  m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_UseRadianceAmbientProbe: 0
+--- !u!157 &3
+LightmapSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 12
+  m_GIWorkflowMode: 1
+  m_GISettings:
+    serializedVersion: 2
+    m_BounceScale: 1
+    m_IndirectOutputScale: 1
+    m_AlbedoBoost: 1
+    m_EnvironmentLightingMode: 0
+    m_EnableBakedLightmaps: 0
+    m_EnableRealtimeLightmaps: 0
+  m_LightmapEditorSettings:
+    serializedVersion: 12
+    m_Resolution: 2
+    m_BakeResolution: 40
+    m_AtlasSize: 1024
+    m_AO: 0
+    m_AOMaxDistance: 1
+    m_CompAOExponent: 1
+    m_CompAOExponentDirect: 0
+    m_ExtractAmbientOcclusion: 0
+    m_Padding: 2
+    m_LightmapParameters: {fileID: 0}
+    m_LightmapsBakeMode: 1
+    m_TextureCompression: 1
+    m_FinalGather: 0
+    m_FinalGatherFiltering: 1
+    m_FinalGatherRayCount: 256
+    m_ReflectionCompression: 2
+    m_MixedBakeMode: 2
+    m_BakeBackend: 1
+    m_PVRSampling: 1
+    m_PVRDirectSampleCount: 32
+    m_PVRSampleCount: 512
+    m_PVRBounces: 2
+    m_PVREnvironmentSampleCount: 256
+    m_PVREnvironmentReferencePointCount: 2048
+    m_PVRFilteringMode: 1
+    m_PVRDenoiserTypeDirect: 1
+    m_PVRDenoiserTypeIndirect: 1
+    m_PVRDenoiserTypeAO: 1
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
+    m_PVREnvironmentMIS: 1
+    m_PVRCulling: 1
+    m_PVRFilteringGaussRadiusDirect: 1
+    m_PVRFilteringGaussRadiusIndirect: 5
+    m_PVRFilteringGaussRadiusAO: 2
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ExportTrainingData: 0
+    m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
+  m_LightingDataAsset: {fileID: 0}
+  m_LightingSettings: {fileID: 0}
+--- !u!196 &4
+NavMeshSettings:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_BuildSettings:
+    serializedVersion: 2
+    agentTypeID: 0
+    agentRadius: 0.5
+    agentHeight: 2
+    agentSlope: 45
+    agentClimb: 0.4
+    ledgeDropHeight: 0
+    maxJumpAcrossDistance: 0
+    minRegionArea: 2
+    manualCellSize: 0
+    cellSize: 0.16666667
+    manualTileSize: 0
+    tileSize: 256
+    accuratePlacement: 0
+    maxJobWorkers: 0
+    preserveTilesOutsideBounds: 0
+    debug:
+      m_Flags: 0
+  m_NavMeshData: {fileID: 0}
+--- !u!1 &117679722
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 117679726}
+  - component: {fileID: 117679725}
+  - component: {fileID: 117679724}
+  - component: {fileID: 117679723}
+  m_Layer: 0
+  m_Name: GameObject_scene 3 (back with grandpa)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &117679723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117679722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad41feee7f7324a578bfe92072da95f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _grandpaDialog1_sobre_fondo_negro:
+    text: "Vein\u2026 vein\u2026vein\u2026\nVeinte a\xF1os hace que vend\xED mi mina.
+      \nNo me pagaron mucho, pero fue la mejor decisi\xF3n. "
+  _kidDialog1_vuelta_salon:
+    text: Wow, parece que funciona.
+  _grandpaDialog2:
+    text: "Todav\xEDa me acuerdo de ese d\xEDa. Eso fue como ir a la guerra: y me
+      toc\xF3 el bando de los perdedores."
+  _kidDialog3:
+    text: "\xBFA la guerra?"
+  _grandpaDialog3:
+    text: "S\xED muchacho. Tuve que negociar y enfrentarme a esos tiburones que quer\xEDan
+      todo por una miseria de dinero. Pero le hab\xEDa prometido a tu abuela que
+      dejar\xEDa ese trabajo, y nunca me he arrepentido de ello."
+  _kidDialog4:
+    text: "\xBFLa abuela te pidi\xF3 vender tu mina de bitcoins?"
+  _grandpaDialog4:
+    text: "S\xED, estaba harta de que nunca estuviese en casa. Me dio un ultim\xE1tum:
+      o la mina o ella. Y ya sabes el resto de la historia."
+  _kidDialog5:
+    text: "Nunca hablas de la abuela. \xBFC\xF3mo la conociste?"
+  _grandpaDialog5:
+    text: "Mi maravillosa Ellie. Todas las muchachas me quer\xEDan a m\xED, pero
+      yo estaba enamorado de ella. \nNos con\u2026 con\u2026 con\u2026"
+  _kidDialog6:
+    text: "Joder, con el viejo. Ya se ha con... con... congelado. \xBF\xBFQu\xE9??
+      \xBF\xA1Esto se pega!? "
+  _kidDialog7:
+    text: "Abuelo, tengo que volver a entrar a tu cerebro y buscar un nuevo fragmento
+      de memoria. Espero que esta vez guardes el recuerdo en un sitio pac\xEDfico."
+--- !u!114 &117679724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117679722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfb88098bb2747a1be42109005163495, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cinematics: []
+--- !u!114 &117679725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117679722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34e150112c1c42ac83170b52d898e322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelected: 0
+--- !u!4 &117679726
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117679722}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &551316363
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 551316366}
+  - component: {fileID: 551316365}
+  - component: {fileID: 551316364}
+  m_Layer: 0
+  m_Name: GameObject_scene 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &551316364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551316363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0db538c012a14b3e897698725e2ee1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _kidDialog1:
+    text: "Ey, \xA1Abuelo! Ya estoy aqu\xED."
+  _grandpaDialog1:
+    text: "\xA1Menos mal! \xBFQu\xE9 horas son estas?"
+  _kidDialog2:
+    text: Joe, abu. He venido como siempre, cuando acabo de currar.
+  _grandpaDialog2:
+    text: "Excusas, excusas. \xBFHas ido a la mina de bitcoins a ver c\xF3mo va la
+      extracci\xF3n?"
+  _kidDialog3:
+    text: "Pero abuelo, si t\xFA vendiste tu mina hace a\xF1os\u2026 A ver, espera
+      un momento.\n"
+  _kidDialog4:
+    text: "ste cacharro de memoria falla m\xE1s que el primer Tesla. \xA1\xA1\xA1Voy
+      a reiniciarte abuelo!!!"
+  _kidDialog5:
+    text: "Ya est\xE1 abuelo, \xBFsabes d\xF3nde est\xE1s?"
+  _grandpaDialog5:
+    text: "\xA1Claro, co\xF1o! No soy tan viejo, estoy en mi casa."
+  _kidDialog6:
+    text: "\xBFY la mina de bitcoin?"
+  _grandpaDialog6:
+    text: "La vend\xED hace a\xF1os, me dieron cuatro Ethereum. Malditos ladrones."
+  _kidDialog7:
+    text: Bueno Abu, de eso hace ya siglos.
+  _grandpaDialog7:
+    text: "\xA1Qu\xE9 dices muchacho! Solo hace vei\u2026. vei\u2026.  vei\u2026"
+  _kidDialog8:
+    text: "\xBF?"
+  _grandpaDialog8:
+    text: "Vei\u2026. vei\u2026."
+  _kidDialog9:
+    text: 'oder, ya se ha bugeado el abuelo otra vez. '
+  _grandpaDialog9:
+    text: "\xBFAbu? \xBFEst\xE1s bien?"
+  _kidDialog10:
+    text: "Vei\u2026 vei\u2026 vei\u2026"
+  _grandpaDialog10:
+    text: "Joder, \xA1Joder! \xA1Esto es un mierd\xF3n! \xA1Vaya cagada! Abu, creo
+      que la he liado, pero voy a arreglarlo. Dame unos minutos que voy a encontrar
+      lo que este cacharro no puede. \xA1Des\xE9ame suerte! "
+  _kidDialog11:
+    text: 
+  _grandpaDialog11:
+    text: 
+  _kidDialog12:
+    text: 
+  _grandpaDialog12:
+    text: 
+  _kidDialog13:
+    text: 
+  _grandpaDialog13:
+    text: 
+--- !u!114 &551316365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551316363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34e150112c1c42ac83170b52d898e322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelected: 0
+--- !u!4 &551316366
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551316363}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &667890061
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 667890065}
+  - component: {fileID: 667890064}
+  - component: {fileID: 667890063}
+  - component: {fileID: 667890062}
+  m_Layer: 0
+  m_Name: GameObject_scene 5 (back with grandpa)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &667890062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667890061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581b979790c0a4a699c57daae6cba524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _grandpaDialog1_fondo_negro:
+    text: "Nos con\u2026 con\u2026 con\u2026\nNos conocimos en un streaming de X1m03,
+      t\xFA lo ves ahora como un carca, pero sus directos los ve\xEDan millones de
+      personas."
+  _kidDialog1_con_abuelo:
+    text: "\xBFLo consegu\xED?"
+  _grandpaDialog2:
+    text: "Ella era la moderadora de los streamings, y yo solo quer\xEDa llamar su
+      atenci\xF3n. As\xED que me dediqu\xE9 durante 1 a\xF1o a trollear en los directos.
+      Y al final consegu\xED que se fijase en m\xED."
+  _kidDialog2:
+    text: Jajaja Joder, Abu, eras todo un bandido digital.
+  _grandpaDialog3:
+    text: "\xBFPero qu\xE9 te piensas, muchacho? Yo s\xED que sab\xEDa c\xF3mo conquistar.
+      Fueron unos a\xF1os muy divertidos. "
+  _kidDialog3:
+    text: "Y despu\xE9s naci\xF3 tu hija y m\xE1s tarde vine yo."
+  _grandpaDialog4:
+    text: "\xBFT\xFA? Yo solo tuve 1 hija."
+  _kidDialog4:
+    text: Ya, porque yo soy tu nieto.
+  _grandpaDialog5:
+    text: "\xBFNieto? No tengo ning\xFAn nieto. Mi hija todav\xEDa es joven para
+      tener hijos."
+  _kidDialog5:
+    text: "Eh\u2026Mam\xE1\u2026hace 2 a\xF1os..."
+  _grandpaDialog6:
+    text: "En cualquier momento aparecer\xE1 por la puerta, ya llega tarde."
+  _kidDialog6:
+    text: "(Jup\u2026 S\xE9 que deber\xEDa volver a meterme y arreglar este recuerdo,
+      pero creo que ser\xEDa m\xE1s doloroso)."
+  _grandpaDialog7:
+    text: "\xBFQu\xE9 dices muchacho?"
+  _kidDialog7:
+    text: "\xBFNo se quedaba hoy tu hija a dormir en casa de una amiga?"
+  _grandpaDialog8:
+    text: "Ah, puede ser s\xED. Ma\xF1ana entonces la ver\xE9. "
+  _kidDialog8:
+    text: "S\xED, ma\xF1ana ya la veremos. "
+--- !u!114 &667890063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667890061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfb88098bb2747a1be42109005163495, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cinematics: []
+--- !u!114 &667890064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667890061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34e150112c1c42ac83170b52d898e322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelected: 0
+--- !u!4 &667890065
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667890061}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &835796462
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 835796466}
+  - component: {fileID: 835796465}
+  - component: {fileID: 835796464}
+  - component: {fileID: 835796463}
+  m_Layer: 0
+  m_Name: GameObject_scene 4 (back in brain_love scene)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &835796463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835796462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355c43d4fa52b419f96437f1296d57b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _kidDialog1_dentro_cerebro:
+    text: "Menudo mareo\u2026 \xBFD\xF3nde estoy? "
+  _kidDialog2_dentro_cerebro:
+    text: "Al menos no se oyen disparos\u2026 Venga R\xEDo, a ver d\xF3nde est\xE1
+      el fragmento de perdido. Let\u2019s go!"
+--- !u!114 &835796464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835796462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfb88098bb2747a1be42109005163495, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cinematics: []
+--- !u!114 &835796465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835796462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34e150112c1c42ac83170b52d898e322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelected: 0
+--- !u!4 &835796466
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835796462}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1149172785
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1149172788}
+  - component: {fileID: 1149172787}
+  - component: {fileID: 1149172786}
+  - component: {fileID: 1149172789}
+  m_Layer: 0
+  m_Name: GameObject_scene 2 (inside brain)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1149172786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149172785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfb88098bb2747a1be42109005163495, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cinematics: []
+--- !u!114 &1149172787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149172785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34e150112c1c42ac83170b52d898e322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelected: 0
+--- !u!4 &1149172788
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149172785}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1149172789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149172785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 177fff12d6db14211ad349f94a1dc4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _kidDialog1_insidebrain:
+    text: "\xBFD\xF3nde estoy?"
+  _kidDialog2_insidebrain:
+    text: "\xA1T\xEDo, ha funcionado! \xA1Estoy dentro de su cerebro!"
+  _kidDialog3_insidebrain:
+    text: "\xBFEso es un helic\xF3ptero militar? El abuelo nunca dijo que participase
+      en una guerra\u2026"
+  _kidDialog4_insidebrain:
+    text: "Venga R\xEDo, reacciona. Ya habr\xE1 tiempo de explicaciones. Ahora tienes
+      que encontrar el bloqueo del abuelo y solucionarlo."
+--- !u!1 &1203737934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1203737937}
+  - component: {fileID: 1203737936}
+  - component: {fileID: 1203737935}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &1203737935
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203737934}
+  m_Enabled: 1
+--- !u!20 &1203737936
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203737934}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 1
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &1203737937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203737934}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
