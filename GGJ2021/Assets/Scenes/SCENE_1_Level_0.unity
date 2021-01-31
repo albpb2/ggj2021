@@ -5301,6 +5301,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1323186046}
     m_Modifications:
+    - target: {fileID: 7639188042169428878, guid: 9ab3880cc1e72c14187603e1ec31eaab, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 9.720093
+      objectReference: {fileID: 0}
     - target: {fileID: 7639188042258436220, guid: 9ab3880cc1e72c14187603e1ec31eaab, type: 3}
       propertyPath: m_Name
       value: PausePanel

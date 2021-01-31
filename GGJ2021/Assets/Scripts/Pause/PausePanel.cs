@@ -1,7 +1,5 @@
-﻿using System;
-using Input;
+﻿using Input;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Pause
@@ -15,15 +13,6 @@ namespace Pause
 
         private InputHandler _inputHandler;
 
-        private ConfirmQuitPanel _confirmQuitPanel;
-        
-        private bool _isConfirming;
-
-        private void Awake()
-        {
-            _confirmQuitPanel = GetComponentInChildren<ConfirmQuitPanel>(true);
-        }
-
         private void Start()
         {
             _inputHandler = FindObjectOfType<InputHandler>();
@@ -31,25 +20,15 @@ namespace Pause
 
         private void Update()
         {
-            if (!_isConfirming && _inputHandler.IsPauseButtonPressed())
+            if (_inputHandler.IsPauseButtonPressed())
                 Disable();
-        }
-
-        private void OnEnable()
-        {
-            _quitButton.onClick.AddListener(OpenConfirmQuitPanel);
-            _confirmQuitPanel.OnQuitCancelled += HandleQuitCancelled;
-        }
-
-        private void OnDisable()
-        {
-            _quitButton.onClick.RemoveListener(OpenConfirmQuitPanel);
-            _confirmQuitPanel.OnQuitCancelled -= HandleQuitCancelled;
+            if (_inputHandler.IsJumpPressed())
+                Quit();
         }
 
         public void Enable()
         {
-            SelectButton();
+            gameObject.SetActive(true);
         }
 
         private void Disable()
@@ -58,23 +37,10 @@ namespace Pause
             OnPausePanelClosed?.Invoke();
         }
 
-        private void OpenConfirmQuitPanel()
+        private void Quit()
         {
-            _isConfirming = true;
-            _confirmQuitPanel.Enable();
-        }
-
-        private void HandleQuitCancelled()
-        {
-            _isConfirming = false;
-            SelectButton();
-        }
-
-        private void SelectButton()
-        {
-            gameObject.SetActive(true);
-            EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(_quitButton.gameObject);
+            Debug.Log("Quitting");
+            Application.Quit();
         }
     }
 }
