@@ -26,6 +26,9 @@ TextureImporter:
   - first:
       213: -6880595812365603152
     second: LEVEL_memory
+  - first:
+      213: 7590484823932065477
+    second: LEVEL_blaster
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -247,7 +250,7 @@ TextureImporter:
         width: 11
         height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -268,7 +271,7 @@ TextureImporter:
         width: 10
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -276,6 +279,27 @@ TextureImporter:
       bones: []
       spriteID: 0be68e840963380a0800000000000000
       internalID: -6880595812365603152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LEVEL_blaster
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 161
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c6d6733bb1d65960800000000000000
+      internalID: 7590484823932065477
       vertices: []
       indices: 
       edges: []
