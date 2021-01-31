@@ -16,26 +16,23 @@ namespace Player.State
         {
             _playerStateProvider = playerStateProvider;
         }
+        
+        protected override string AnimationTriggerName => PlayerAnimationTriggers.CrouchStateEntered;
 
-        public override IPlayerState EnterState()
-        {
-            PlayerController.TriggerAnimation(PlayerAnimationTriggers.CrouchStateEntered);
-            return this;
-        }
+        public override bool IsCrouched => true;
 
         public override IPlayerState Update()
         {
             if (!ShouldCrouch())
-                return _playerStateProvider.GetIdleState();
+                return TransitionToState(_playerStateProvider.GetIdleState());
 
             if (IsMovingHorizontally())
-                return _playerStateProvider.GetMovingCrouchState();
+                return TransitionToState(_playerStateProvider.GetMovingCrouchState());
 
             if (ShouldShoot())
-            {
-                PlayerController.Shoot();
-                return this;
-            }
+                Shoot();
+            else if (ShouldStopShooting())
+                StopShooting();
 
             return this;
         }

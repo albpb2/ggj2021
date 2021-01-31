@@ -15,28 +15,23 @@ namespace Player.State
             _playerStateProvider = playerStateProvider;
         }
 
-        public override IPlayerState EnterState()
-        {
-            PlayerController.TriggerAnimation(PlayerAnimationTriggers.IdleStateEntered);
-            return this;
-        }
+        protected override string AnimationTriggerName => PlayerAnimationTriggers.IdleStateEntered;
 
         public override IPlayerState Update()
         {
             if (IsMovingHorizontally())
-                return _playerStateProvider.GetWalkingState();
+                return TransitionToState(_playerStateProvider.GetWalkingState());
 
             if (ShouldCrouch())
-                return _playerStateProvider.GetCrouchState();
+                return TransitionToState(_playerStateProvider.GetCrouchState());
 
             if (ShouldJump())
-                return _playerStateProvider.GetJumpingState();
+                return TransitionToState(_playerStateProvider.GetJumpingState());
 
             if (ShouldShoot())
-            {
-                PlayerController.Shoot();
-                return this;
-            }
+                Shoot();
+            else if (ShouldStopShooting())
+                StopShooting();
 
             return this;
         }

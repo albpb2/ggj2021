@@ -15,28 +15,26 @@ namespace Player.State
         {
             _playerStateProvider = playerStateProvider;
         }
-        
-        public override IPlayerState EnterState()
-        {
-            PlayerController.TriggerAnimation(PlayerAnimationTriggers.WalkingStateEntered);
-            return this;
-        }
+
+        protected override string AnimationTriggerName => PlayerAnimationTriggers.WalkingStateEntered;
 
         public override IPlayerState Update()
         {
             if (!IsMovingHorizontally())
-                return _playerStateProvider.GetIdleState();
+                return TransitionToState(_playerStateProvider.GetIdleState());
 
             if (ShouldCrouch())
-                return _playerStateProvider.GetMovingCrouchState();
+                return TransitionToState(_playerStateProvider.GetMovingCrouchState());
 
             if (ShouldJump())
-                return _playerStateProvider.GetJumpingState();
+                return TransitionToState(_playerStateProvider.GetJumpingState());
             
             PlayerController.SetMovement(new Vector2(InputHandler.GetHorizontalAxisValue(), 0));
 
             if (ShouldShoot())
-                PlayerController.Shoot();
+                Shoot();
+            else if (ShouldStopShooting())
+                StopShooting();
 
             return this;
         }

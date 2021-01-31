@@ -15,22 +15,20 @@ namespace Player.State
         {
             _playerStateProvider = playerStateProvider;
         }
-        
-        public override IPlayerState EnterState()
-        {
-            PlayerController.TriggerAnimation(PlayerAnimationTriggers.FallingStateEntered);
-            return this;
-        }
+
+        protected override string AnimationTriggerName => PlayerAnimationTriggers.FallingStateEntered;
 
         public override IPlayerState Update()
         {
             if (PlayerController.IsGrounded)
-                return _playerStateProvider.GetIdleState();
+                return TransitionToState(_playerStateProvider.GetIdleState());
             
             PlayerController.SetMovement(new Vector2(InputHandler.GetHorizontalAxisValue(), 0));
 
             if (ShouldShoot())
-                PlayerController.Shoot();
+                Shoot();
+            else if (ShouldStopShooting())
+                StopShooting();
 
             return this;
         }

@@ -18,24 +18,23 @@ namespace Player.State
             _playerStateProvider = playerStateProvider;
         }
 
-        public override IPlayerState EnterState()
-        {
-            PlayerController.TriggerAnimation(PlayerAnimationTriggers.MovingCrouchStateEntered);
-            return this;
-        }
+        protected override string AnimationTriggerName => PlayerAnimationTriggers.MovingCrouchStateEntered;
+        public override bool IsCrouched => true;
 
         public override IPlayerState Update()
         {
             if (!ShouldCrouch())
-                return _playerStateProvider.GetWalkingState();
+                return TransitionToState(_playerStateProvider.GetWalkingState());
 
             if (!IsMovingHorizontally())
-                return _playerStateProvider.GetCrouchState();
+                return TransitionToState(_playerStateProvider.GetCrouchState());
             
             PlayerController.SetMovement(new Vector2(InputHandler.GetHorizontalAxisValue(), 0));
 
             if (ShouldShoot())
-                PlayerController.Shoot();
+                Shoot();
+            else if (ShouldStopShooting())
+                StopShooting();
 
             return this;
         }

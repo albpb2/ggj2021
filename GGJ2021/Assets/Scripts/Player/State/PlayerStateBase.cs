@@ -1,4 +1,5 @@
 ﻿using Input;
+using UnityEngine;
 
 namespace Player.State
 {
@@ -6,6 +7,11 @@ namespace Player.State
     {
         protected readonly PlayerController PlayerController;
         protected readonly InputHandler InputHandler;
+
+        protected abstract string AnimationTriggerName { get; }
+
+        private bool _isShooting;
+        private string _shootingAnimation;
         
         public PlayerStateBase(PlayerController playerController, InputHandler inputHandler)
         {
@@ -13,16 +19,58 @@ namespace Player.State
             InputHandler = inputHandler;
         }
 
-        public abstract IPlayerState EnterState();
+        public virtual bool IsCrouched => false;
+
+        public IPlayerState EnterState()
+        {
+            Debug.Log($"Entering state {this.GetType().Name}");
+            PlayerController.PlayAnimation(AnimationTriggerName);
+            InitializeState();
+            return this;
+        }
 
         public abstract IPlayerState Update();
+
+        protected virtual void InitializeState()
+        {
+        }
+
+        protected IPlayerState TransitionToState(IPlayerState newState)
+        {
+            PlayerController.StopAnimation(AnimationTriggerName);
+            return newState.EnterState();
+        }
 
         protected bool ShouldJump() => PlayerController.IsGrounded && InputHandler.IsJumpPressed();
         
         protected bool ShouldShoot() => InputHandler.IsFire1Pressed();
+        
+        protected bool ShouldStopShooting() => _isShooting && !InputHandler.IsFire1Pressed();
 
         protected bool IsMovingHorizontally() => InputHandler.GetHorizontalAxisValue() != 0;
 
         protected bool ShouldCrouch() => InputHandler.GetVerticalAxisValue() < 0;
+
+        protected void Shoot()
+        {
+            var animation = IsCrouched ? PlayerAnimationTriggers.ShootCrouched : PlayerAnimationTriggers.Shoot;
+            
+            if (_isShooting && animation != _shootingAnimation)
+            {
+                PlayerController.StopAnimation(_shootingAnimation);
+            }
+            
+            PlayerController.PlayAnimation(animation);
+            _shootingAnimation = animation;
+            
+            _isShooting = true;
+            PlayerController.Shoot();
+        }
+        
+        protected void StopShooting()
+        {
+            var animation = IsCrouched ? PlayerAnimationTriggers.ShootCrouched : PlayerAnimationTriggers.Shoot;
+            PlayerController.StopAnimation(animation);
+        }
     }
 }

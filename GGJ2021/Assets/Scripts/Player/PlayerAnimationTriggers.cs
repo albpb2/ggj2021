@@ -8,5 +8,8 @@
         public const string MovingCrouchStateEntered = nameof(MovingCrouchStateEntered);
         public const string JumpingStateEntered = nameof(JumpingStateEntered);
         public const string FallingStateEntered = nameof(FallingStateEntered);
+        public const string Shoot = nameof(Shoot);
+        public const string ShootCrouched = nameof(ShootCrouched);
+        public const string ShootingStateEntered = nameof(ShootingStateEntered);
     }
 }

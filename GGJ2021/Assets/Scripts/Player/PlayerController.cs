@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        _state = _playerStateProvider.GetIdleState();
+        _state = _playerStateProvider.GetIdleState().EnterState();
         _isGrounded = true;
         _lookingRight = true;
     }
@@ -67,10 +67,11 @@ public class PlayerController : MonoBehaviour
             _equippedGun.Shoot(_shootingPoint, transform.right);
     }
 
-    public void TriggerAnimation(string triggerName)
-    {
-        _animator.SetTrigger(triggerName);
-    }
+    public void PlayAnimationOnce(string triggerName) => _animator.SetTrigger(triggerName);
+
+    public void PlayAnimation(string triggerName) => _animator.SetBool(triggerName, true);
+    
+    public void StopAnimation(string triggerName) => _animator.SetBool(triggerName, false);
 
     public void Hurt(int damage)
     {

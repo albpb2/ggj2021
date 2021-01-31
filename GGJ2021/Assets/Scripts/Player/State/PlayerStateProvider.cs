@@ -21,11 +21,11 @@ namespace Player.State
             _fallingState = new FallingPlayerState(playerController, inputHandler, this);
         }
 
-        public IPlayerState GetIdleState() => _idleState.EnterState();
-        public IPlayerState GetWalkingState() => _walkingState.EnterState();
-        public IPlayerState GetCrouchState() => _crouchState.EnterState();
-        public IPlayerState GetMovingCrouchState() => _movingCrouchState.EnterState();
-        public IPlayerState GetJumpingState() => _jumpingState.EnterState();
-        public IPlayerState GetFallingState() => _fallingState.EnterState();
+        public IPlayerState GetIdleState() => _idleState;
+        public IPlayerState GetWalkingState() => _walkingState;
+        public IPlayerState GetCrouchState() => _crouchState;
+        public IPlayerState GetMovingCrouchState() => _movingCrouchState;
+        public IPlayerState GetJumpingState() => _jumpingState;
+        public IPlayerState GetFallingState() => _fallingState;
     }
 }
