@@ -38,6 +38,8 @@ namespace Player.State
         protected IPlayerState TransitionToState(IPlayerState newState)
         {
             PlayerController.StopAnimation(AnimationTriggerName);
+            if (_isShooting)
+                StopShooting();
             return newState.EnterState();
         }
 
@@ -71,6 +73,7 @@ namespace Player.State
         {
             var animation = IsCrouched ? PlayerAnimationTriggers.ShootCrouched : PlayerAnimationTriggers.Shoot;
             PlayerController.StopAnimation(animation);
+            _isShooting = false;
         }
     }
 }
