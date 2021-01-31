@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
 
     public bool IsGrounded => _isGrounded;
     public bool IsFalling => !_isGrounded && _rigidbody.velocity.y < -GlobalConstants.FloatTolerance;
+    public Vector2 Velocity => _rigidbody.velocity;
 
     private void Awake()
     {

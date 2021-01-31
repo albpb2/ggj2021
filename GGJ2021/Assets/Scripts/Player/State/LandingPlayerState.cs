@@ -6,6 +6,8 @@ namespace Player.State
 {
     public class LandingPlayerState : PlayerStateBase
     {
+        private const float MinVelocityToRoll = 1f;
+        
         private readonly PlayerStateProvider _playerStateProvider;
         
         public LandingPlayerState(
@@ -23,12 +25,14 @@ namespace Player.State
         
         public override IPlayerState Update()
         {
+            Debug.Log($"Horizontal velocity: {PlayerController.Velocity.x}");
+
+            if (!HasEnoughVelocityToRoll() || ShouldShoot())
+                return TransitionToState(_playerStateProvider.GetWalkingState());
+            
             const float expectedDurationSeconds = .5f;
             if (Time.time - _startTime > expectedDurationSeconds)
                 return TransitionToState(_playerStateProvider.GetWalkingState());
-            
-            if (!IsMovingHorizontally())
-                return TransitionToState(_playerStateProvider.GetIdleState());
             
             PlayerController.SetMovement(new Vector2(InputHandler.GetHorizontalAxisValue(), 0));
 
@@ -40,7 +44,8 @@ namespace Player.State
             _startTime = Time.time;
         }
 
-        protected override bool ShouldPlayEnterAnimation() => 
-            Math.Abs(InputHandler.GetHorizontalAxisValue()) > GlobalConstants.FloatTolerance;
+        protected override bool ShouldPlayEnterAnimation() => HasEnoughVelocityToRoll() && !ShouldShoot();
+
+        private bool HasEnoughVelocityToRoll() => Math.Abs(PlayerController.Velocity.x) >= MinVelocityToRoll;
     }
 }
