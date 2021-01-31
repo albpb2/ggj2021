@@ -12,15 +12,21 @@ public class GrandpaHouseScene : MonoBehaviour
     private InputHandler _inputHandler;
     private PauseManager _pauseManager;
 
-    private bool _isCinematicFinished;
+    private bool _currentCinematicIsFinished;
+    private Cinematic _currentCinematic;
     
     private void Start()
     {
         _inputHandler = FindObjectOfType<InputHandler>();
         _pauseManager = FindObjectOfType<PauseManager>();
-        
-        if (GlobalGameState.Instance.GrandpaHouseCinematicIndex <= _cinematics.Length)
-            _cinematics[GlobalGameState.Instance.GrandpaHouseCinematicIndex].Play();
+
+        _currentCinematic = GlobalGameState.Instance.GrandpaHouseCinematicIndex < _cinematics.Length
+            ? _cinematics[GlobalGameState.Instance.GrandpaHouseCinematicIndex]
+            : null;
+        if (_currentCinematic != null)
+            _currentCinematic.Play();
+        else
+            _currentCinematicIsFinished = true;
     }
 
     private void Update()
@@ -28,17 +34,19 @@ public class GrandpaHouseScene : MonoBehaviour
         if (_pauseManager.IsPaused())
             return;
         
-        if (!_isCinematicFinished && _cinematics[GlobalGameState.Instance.GrandpaHouseCinematicIndex].IsFinished())
+        if (!_currentCinematicIsFinished && HasCurrentCinematicFinished())
         {
-            _isCinematicFinished = true;
+            _currentCinematicIsFinished = true;
             GlobalGameState.Instance.GrandpaHouseCinematicIndex++;
         }
 
-        if (_isCinematicFinished && ShouldLoadNextScene())
+        if (_currentCinematicIsFinished && ShouldLoadNextScene())
         {
             SceneManager.LoadScene(SceneIds.WarScene);
         }
     }
 
     private bool ShouldLoadNextScene() => _inputHandler.IsAnyButtonPressed();
+
+    private bool HasCurrentCinematicFinished() => _currentCinematic == null || _cinematics[GlobalGameState.Instance.GrandpaHouseCinematicIndex].IsFinished();
 }

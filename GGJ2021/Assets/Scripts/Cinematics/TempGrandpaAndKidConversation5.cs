@@ -2,7 +2,7 @@
 using Cinematics;
 using UnityEngine;
 
-public class GrandpaAndKidConversation5: MonoBehaviour
+public class TempGrandpaAndKidConversation5: MonoBehaviour
 {
     
 

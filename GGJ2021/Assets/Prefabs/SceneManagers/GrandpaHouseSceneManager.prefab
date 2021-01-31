@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3282971860232789450}
   - component: {fileID: 1770223359614636787}
   m_Layer: 0
-  m_Name: SceneManager
+  m_Name: GrandpaHouseSceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,4 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb88098bb2747a1be42109005163495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cinematics: []
+  _cinematics:
+  - {fileID: 0}
+  - {fileID: 0}
