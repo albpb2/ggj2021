@@ -123,7 +123,6 @@ public class PlayerController : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("I'm dead");
         OnPlayerDied?.Invoke();
     }
 }
