@@ -7,6 +7,8 @@ public class IntroScene : MonoBehaviour
 {
     private InputHandler _inputHandler;
 
+    private bool _transitionToNextSceneIsEnabled;
+    
     private void Start()
     {
         _inputHandler = FindObjectOfType<InputHandler>();
@@ -18,5 +20,10 @@ public class IntroScene : MonoBehaviour
             SceneManager.LoadScene(SceneIds.GrandpaHouse);
     }
 
-    private bool ShouldLoadNextScene() => _inputHandler.IsAnyButtonPressed();
+    public void EnableTransitionToNextScene()
+    {
+        _transitionToNextSceneIsEnabled = true;
+    }
+
+    private bool ShouldLoadNextScene() => _transitionToNextSceneIsEnabled && _inputHandler.IsAnyButtonPressed();
 }
