@@ -6,6 +6,8 @@ namespace Player.State
     public class FallingPlayerState : PlayerStateBase
     {
         private readonly PlayerStateProvider _playerStateProvider;
+
+        private float _initialHeight;
         
         public FallingPlayerState(
             PlayerController playerController,
@@ -21,7 +23,10 @@ namespace Player.State
         public override IPlayerState Update()
         {
             if (PlayerController.IsGrounded)
+            {
+                PlayerController.HandleFall(_initialHeight);
                 return TransitionToState(_playerStateProvider.GetLandingState());
+            }
             
             PlayerController.SetMovement(new Vector2(InputHandler.GetHorizontalAxisValue(), 0));
 
@@ -31,6 +36,11 @@ namespace Player.State
                 StopShooting();
 
             return this;
+        }
+
+        protected override void InitializeState()
+        {
+            _initialHeight = PlayerController.transform.position.y;
         }
     }
 }

@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _velocity = 1;
     [SerializeField] private float _jumpForce = 1;
     [SerializeField] private int _healthPoints = 100;
+    [SerializeField] private float _maxFallDistance;
     [SerializeField] private Transform _groundDetector;
     [SerializeField] private Transform _shootingPoint;
     [SerializeField] private LayerMask _groundLayer;
@@ -38,7 +39,7 @@ public class PlayerController : MonoBehaviour
     private PickableItem _pickableItem;
 
     public bool IsGrounded => _isGrounded;
-    public bool IsFalling => _rigidbody.velocity.y < -GlobalConstants.FloatTolerance;
+    public bool IsFalling => !_isGrounded && _rigidbody.velocity.y < -GlobalConstants.FloatTolerance;
 
     private void Awake()
     {
@@ -98,14 +99,12 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag(Tags.PickableItem))
             _pickableItem = other.GetComponent<PickableItem>();
-        Debug.Log($"Entered {other.tag}");
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag(Tags.PickableItem))
             _pickableItem = null;
-        Debug.Log($"Exited {other.tag}");
     }
 
     public void SetMovement(Vector2 movement) => _movement = movement;
@@ -153,6 +152,13 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         OnPlayerDied?.Invoke();
+    }
+
+    public void HandleFall(float initialHeight)
+    {
+        var fallDistance = initialHeight - transform.position.y;
+        if (fallDistance > _maxFallDistance)
+            Die();
     }
 
     private void FixOrientation()
