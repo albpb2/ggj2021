@@ -1,4 +1,5 @@
 ﻿using System;
+using FMODUnity;
 using Input;
 using Inventory;
 using Pause;
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform _shootingPoint;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private Gun _equippedGun;
+    [SerializeField] private StudioEventEmitter _jumpEventEmitter;
     
     private PlayerStateProvider _playerStateProvider;
     private InputHandler _inputHandler;
@@ -106,7 +108,11 @@ public class PlayerController : MonoBehaviour
 
     public void SetMovement(Vector2 movement) => _movement = movement;
 
-    public void Jump() => _rigidbody.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+    public void Jump()
+    {
+        _jumpEventEmitter.Play();
+        _rigidbody.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+    }
 
     public void Shoot()
     {
