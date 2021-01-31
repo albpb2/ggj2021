@@ -21,7 +21,7 @@ namespace Player.State
         public override IPlayerState Update()
         {
             if (PlayerController.IsGrounded)
-                return TransitionToState(_playerStateProvider.GetIdleState());
+                return TransitionToState(_playerStateProvider.GetLandingState());
             
             PlayerController.SetMovement(new Vector2(InputHandler.GetHorizontalAxisValue(), 0));
 

@@ -1,4 +1,5 @@
-﻿using Input;
+﻿using System;
+using Input;
 using UnityEngine;
 
 namespace Player.State
@@ -24,12 +25,17 @@ namespace Player.State
         public IPlayerState EnterState()
         {
             Debug.Log($"Entering state {this.GetType().Name}");
-            PlayerController.PlayAnimation(AnimationTriggerName);
+            if (ShouldPlayEnterAnimation())
+            {
+                PlayerController.PlayAnimation(AnimationTriggerName);
+            }
             InitializeState();
             return this;
         }
 
         public abstract IPlayerState Update();
+
+        protected virtual bool ShouldPlayEnterAnimation() => true;
 
         protected virtual void InitializeState()
         {

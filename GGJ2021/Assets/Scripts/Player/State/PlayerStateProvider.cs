@@ -10,6 +10,7 @@ namespace Player.State
         private readonly IPlayerState _movingCrouchState;
         private readonly IPlayerState _jumpingState;
         private readonly IPlayerState _fallingState;
+        private readonly IPlayerState _landingState;
 
         public PlayerStateProvider(PlayerController playerController, InputHandler inputHandler)
         {
@@ -19,6 +20,7 @@ namespace Player.State
             _movingCrouchState = new MovingCrouchPlayerState(playerController, inputHandler, this);
             _jumpingState = new JumpingPlayerState(playerController, inputHandler, this);
             _fallingState = new FallingPlayerState(playerController, inputHandler, this);
+            _landingState = new LandingPlayerState(playerController, inputHandler, this);
         }
 
         public IPlayerState GetIdleState() => _idleState;
@@ -27,5 +29,6 @@ namespace Player.State
         public IPlayerState GetMovingCrouchState() => _movingCrouchState;
         public IPlayerState GetJumpingState() => _jumpingState;
         public IPlayerState GetFallingState() => _fallingState;
+        public IPlayerState GetLandingState() => _landingState;
     }
 }
