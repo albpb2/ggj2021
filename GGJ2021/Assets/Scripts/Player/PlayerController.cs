@@ -94,12 +94,14 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag(Tags.PickableItem))
             _pickableItem = other.GetComponent<PickableItem>();
+        Debug.Log($"Entered {other.tag}");
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag(Tags.PickableItem))
             _pickableItem = null;
+        Debug.Log($"Exited {other.tag}");
     }
 
     public void SetMovement(Vector2 movement) => _movement = movement;

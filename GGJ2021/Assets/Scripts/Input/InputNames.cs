@@ -7,5 +7,6 @@
         public const string Jump = nameof(Jump);
         public const string Pause = nameof(Pause);
         public const string Fire1 = nameof(Fire1);
+        public const string Fire3 = nameof(Fire3);
     }
 }
