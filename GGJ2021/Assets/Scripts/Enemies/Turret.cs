@@ -40,14 +40,14 @@ namespace Enemies
 
         private bool IsPlayerVisible()
         {
-            var hit = Physics2D.Raycast(_shootingPointPosition, Vector2.right, _range, _playerLayer);
+            var hit = Physics2D.Raycast(_shootingPointPosition, transform.right, _range, _playerLayer);
             return hit.collider != null;
         }
 
         private void Shoot()
         {
             var projectile = _projectilePool.GetNextItem();
-            projectile.Shoot(_shootingPoint.position, Vector2.right);
+            projectile.Shoot(_shootingPoint.position, transform.right);
         }
     }
 }
