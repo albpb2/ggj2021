@@ -1264,6 +1264,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrandpaDialogBox
       objectReference: {fileID: 0}
+    - target: {fileID: 8421317790768327771, guid: 7069b63461dc38b47a2814387b3a7277, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8421317790768327773, guid: 7069b63461dc38b47a2814387b3a7277, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7069b63461dc38b47a2814387b3a7277, type: 3}
@@ -1274,6 +1278,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1451979541}
     m_Modifications:
+    - target: {fileID: 8971059208515852970, guid: 16fe2402ed013e642aad419e7493870a, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8971059208515852971, guid: 16fe2402ed013e642aad419e7493870a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1344,7 +1352,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8971059208515852971, guid: 16fe2402ed013e642aad419e7493870a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -281.99994
+      value: -245
       objectReference: {fileID: 0}
     - target: {fileID: 8971059208515852971, guid: 16fe2402ed013e642aad419e7493870a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

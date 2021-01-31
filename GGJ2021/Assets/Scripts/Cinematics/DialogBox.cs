@@ -41,17 +41,17 @@ namespace Cinematics
             
             if (!Finished && _inputHandler.IsAnyButtonPressed())
             {
-                if (HasMoreText)
+                if (HasMoreText && _buttonPressedOnce)
                 {
                     if (_buttonPressedOnce)
                         PlayNextSentence();
-                    _buttonPressedOnce = !_buttonPressedOnce;
                 }
-                else
+                else if (_buttonPressedOnce)
                 {
                     ClearText();
                     Finished = true;
                 }
+                _buttonPressedOnce = !_buttonPressedOnce;
             }
         }
 
@@ -61,6 +61,7 @@ namespace Cinematics
             _lines = text.text.Split(new []{lineSeparator}, StringSplitOptions.None);
             _buttonPressedOnce = false;
             Finished = false;
+            _currentLine = 0;
             PlayNextSentence();
         }
 

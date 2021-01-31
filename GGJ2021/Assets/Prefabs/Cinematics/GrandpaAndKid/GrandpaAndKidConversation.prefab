@@ -109,7 +109,44 @@ MonoBehaviour:
   _grandpa: {fileID: 0}
   _kidDialogBox: {fileID: 0}
   _grandpaDialogBox: {fileID: 0}
-  _kidDialogLine1:
-    text: 'Hey grandpa,
-
-      Whats up'
+  _kidDialog1:
+    text: "Ey, \xA1Abuelo! Ya estoy aqu\xED."
+  _grandpaDialog1:
+    text: "\xA1Menos mal! \xBFQu\xE9 horas son estas?"
+  _kidDialog2:
+    text: Joe, abu. He venido como siempre, cuando acabo de currar.
+  _grandpaDialog2:
+    text: "Excusas, excusas. \xBFHas ido a la mina de bitcoins a ver c\xF3mo va la
+      extracci\xF3n?"
+  _kidDialog3:
+    text: "Pero abuelo, si t\xFA vendiste tu mina hace a\xF1os\u2026 A ver, espera
+      un momento.\n"
+  _kidDialog4:
+    text: "Este cacharro de memoria falla m\xE1s que el primer Tesla. \xA1\xA1\xA1Voy
+      a reiniciarte abuelo!!!"
+  _kidDialog5:
+    text: "Ya est\xE1 abuelo, \xBFsabes d\xF3nde est\xE1s?"
+  _grandpaDialog5:
+    text: "\xA1Claro, co\xF1o! No soy tan viejo, estoy en mi casa."
+  _kidDialog6:
+    text: "\xBFY la mina de bitcoin?"
+  _grandpaDialog6:
+    text: "La vend\xED hace a\xF1os, me dieron cuatro Ethereum. Malditos ladrones."
+  _kidDialog7:
+    text: Bueno Abu, de eso hace ya siglos.
+  _grandpaDialog7:
+    text: "\xA1Qu\xE9 dices muchacho! Solo hace vei\u2026. vei\u2026.  vei\u2026"
+  _kidDialog8:
+    text: "\xBF?"
+  _grandpaDialog8:
+    text: "Vei\u2026. vei\u2026."
+  _kidDialog9:
+    text: 'Joder, ya se ha bugeado el abuelo otra vez. '
+  _kidDialog10:
+    text: "\xBFAbu? \xBFEst\xE1s bien?"
+  _grandpaDialog10:
+    text: "Vei\u2026 vei\u2026 vei\u2026"
+  _kidDialog11:
+    text: "Joder, \xA1Joder! \xA1Esto es un mierd\xF3n! \xA1Vaya cagada! Abu, creo
+      que la he liado, pero voy a arreglarlo. Dame unos minutos que voy a encontrar
+      lo que este cacharro no puede. \xA1Des\xE9ame suerte! "
