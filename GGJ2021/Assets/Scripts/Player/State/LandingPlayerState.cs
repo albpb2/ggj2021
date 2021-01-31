@@ -29,6 +29,8 @@ namespace Player.State
             
             if (!IsMovingHorizontally())
                 return TransitionToState(_playerStateProvider.GetIdleState());
+            
+            PlayerController.SetMovement(new Vector2(InputHandler.GetHorizontalAxisValue(), 0));
 
             return this;
         }

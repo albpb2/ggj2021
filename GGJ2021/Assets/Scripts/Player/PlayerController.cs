@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour
         if (_pauseManager.IsPaused())
             return;
 
+        SetMovement(Vector2.zero);
         _state = _state.Update();
         FixOrientation();
     }
@@ -61,6 +62,22 @@ public class PlayerController : MonoBehaviour
     {
         var horizontalVelocity = _movement.x * _velocity;
         _rigidbody.velocity = new Vector2(horizontalVelocity, _rigidbody.velocity.y);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag(Tags.Ground) && Physics2D.OverlapCircle(_groundDetector.position, GroundCheckRadius, _groundLayer))
+        {
+            _isGrounded = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag(Tags.Ground) && !Physics2D.OverlapCircle(_groundDetector.position, GroundCheckRadius, _groundLayer))
+        {
+            _isGrounded = false;
+        }
     }
 
     public void SetMovement(Vector2 movement) => _movement = movement;
@@ -86,22 +103,6 @@ public class PlayerController : MonoBehaviour
         if (_healthPoints == 0)
         {
             Die();
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag(Tags.Ground) && Physics2D.OverlapCircle(_groundDetector.position, GroundCheckRadius, _groundLayer))
-        {
-            _isGrounded = true;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag(Tags.Ground) && !Physics2D.OverlapCircle(_groundDetector.position, GroundCheckRadius, _groundLayer))
-        {
-            _isGrounded = false;
         }
     }
 

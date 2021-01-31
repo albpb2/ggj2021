@@ -55,7 +55,7 @@ namespace Player.State
         
         protected bool ShouldStopShooting() => _isShooting && !InputHandler.IsFire1Pressed();
 
-        protected bool IsMovingHorizontally() => InputHandler.GetHorizontalAxisValue() != 0;
+        protected bool IsMovingHorizontally() => Math.Abs(InputHandler.GetHorizontalAxisValue()) >= 0.05;
 
         protected bool ShouldCrouch() => InputHandler.GetVerticalAxisValue() < 0;
 
