@@ -1,10 +1,11 @@
 ﻿using System.Collections;
+using Enemies;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private float _speed;
-    [SerializeField] private int _damage;
+    [SerializeField] private int _damagePoints;
     
     private PlayerController _playerController;
     
@@ -20,13 +21,18 @@ public class Projectile : MonoBehaviour
     {
         if (other.CompareTag(Tags.Player))
         {
-            _playerController.Hurt(_damage);
+            _playerController.Hurt(_damagePoints);
             Disable();
             return;
         }
-        
+
         if (!other.isTrigger)
+        {
+            var destructibleComponent = other.GetComponent<Destructible>();
+            if (destructibleComponent != null)
+                destructibleComponent.Damage(_damagePoints);
             Disable();
+        }
     }
 
     public void Shoot(Vector2 origin, Vector2 direction)
