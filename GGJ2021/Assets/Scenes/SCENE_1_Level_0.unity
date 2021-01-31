@@ -12166,6 +12166,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hell
       objectReference: {fileID: 0}
+    - target: {fileID: 9013217330506295394, guid: fad5749f2adc10d4eb3624fb402057db, type: 3}
+      propertyPath: m_Size.y
+      value: 0.56603813
+      objectReference: {fileID: 0}
+    - target: {fileID: 9013217330506295394, guid: fad5749f2adc10d4eb3624fb402057db, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.21698093
+      objectReference: {fileID: 0}
     - target: {fileID: 9013217330506295395, guid: fad5749f2adc10d4eb3624fb402057db, type: 3}
       propertyPath: m_RootOrder
       value: 16
