@@ -57,7 +57,7 @@ namespace Player.State
 
         protected bool ShouldJump() => PlayerController.IsGrounded && InputHandler.IsJumpPressed();
         
-        protected bool ShouldShoot() => InputHandler.IsFire1Pressed();
+        protected bool ShouldShoot() => PlayerController.EquippedGun != null && InputHandler.IsFire1Pressed();
         
         protected bool ShouldStopShooting() => _isShooting && !InputHandler.IsFire1Pressed();
 

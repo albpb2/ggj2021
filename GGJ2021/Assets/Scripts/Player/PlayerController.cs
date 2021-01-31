@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
     public bool IsGrounded => _isGrounded;
     public bool IsFalling => !_isGrounded && _rigidbody.velocity.y < -GlobalConstants.FloatTolerance;
     public Vector2 Velocity => _rigidbody.velocity;
+    public Gun EquippedGun => _equippedGun;
 
     private void Awake()
     {
@@ -170,6 +171,12 @@ public class PlayerController : MonoBehaviour
         var fallDistance = initialHeight - transform.position.y;
         if (fallDistance > _maxFallDistance)
             Die();
+    }
+
+    public void EquipGun(Gun gun)
+    {
+        Debug.Log($"Equipping {gun.name}");
+        _equippedGun = gun;
     }
 
     private void FixOrientation()
