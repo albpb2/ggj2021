@@ -105,8 +105,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f95f748a5a986d4483d1837b84904b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _childrenGettingCloseToGrandpa:
-    targetPosition: {fileID: 6272992965423573526}
-    speed: 1
   _kid: {fileID: 0}
   _grandpa: {fileID: 0}
+  _kidDialogBox: {fileID: 0}
+  _grandpaDialogBox: {fileID: 0}
+  _kidDialogLine1:
+    text: 'Hey grandpa,
+
+      Whats up'

@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace Player.State
 {
-    public class WalkingPlayerState : PlayerStateBase
+    public class JumpingPlayerState : PlayerStateBase
     {
         private PlayerStateProvider _playerStateProvider;
-        
-        public WalkingPlayerState(
+
+        public JumpingPlayerState(
             PlayerController playerController,
             InputHandler inputHandler,
             PlayerStateProvider playerStateProvider) 
@@ -18,20 +18,16 @@ namespace Player.State
         
         public override IPlayerState EnterState()
         {
-            PlayerController.TriggerAnimation(PlayerAnimationTriggers.WalkingStateEntered);
+            Debug.Log("Entering jump");
+            PlayerController.TriggerAnimation(PlayerAnimationTriggers.JumpingStateEntered);
+            PlayerController.Jump();
             return this;
         }
 
         public override IPlayerState Update()
         {
-            if (!IsMovingHorizontally())
-                return _playerStateProvider.GetIdleState();
-
-            if (ShouldCrouch())
-                return _playerStateProvider.GetMovingCrouchState();
-
-            if (ShouldJump())
-                return _playerStateProvider.GetJumpingState();
+            if (PlayerController.IsFalling)
+                return _playerStateProvider.GetFallingState();
             
             PlayerController.SetMovement(new Vector2(InputHandler.GetHorizontalAxisValue(), 0));
 

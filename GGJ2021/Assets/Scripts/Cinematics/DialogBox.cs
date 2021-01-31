@@ -23,12 +23,15 @@ namespace Cinematics
 
         private bool HasMoreText => _lines != null && _currentLine < _lines.Length;
 
+        private void Awake()
+        {
+            _textBox = GetComponent<TMP_Text>();
+        }
+
         private void Start()
         {
             _inputHandler = FindObjectOfType<InputHandler>();
             _pauseManager = FindObjectOfType<PauseManager>();
-
-            _textBox = GetComponent<TMP_Text>();
         }
 
         private void Update()

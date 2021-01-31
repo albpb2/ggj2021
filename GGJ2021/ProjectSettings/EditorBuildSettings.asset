@@ -10,7 +10,7 @@ EditorBuildSettings:
     guid: 17a96591d559e5c40ad9474fc1d0b079
   - enabled: 1
     path: Assets/Scenes/GrandpaHouse.unity
-    guid: d8e734cb0eb02534aacfb5b4ccd332dd
+    guid: cf3bd8fd6efc35a40858ea57b27d540f
   - enabled: 1
     path: Assets/Scenes/MovementTest.unity
     guid: 2cda990e2423bbf4892e6590ba056729

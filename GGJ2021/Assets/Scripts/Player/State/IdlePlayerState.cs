@@ -30,10 +30,7 @@ namespace Player.State
                 return _playerStateProvider.GetCrouchState();
 
             if (ShouldJump())
-            {
-                PlayerController.Jump();
-                return this;
-            }
+                return _playerStateProvider.GetJumpingState();
 
             if (ShouldShoot())
             {
