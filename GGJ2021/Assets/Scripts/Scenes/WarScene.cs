@@ -23,5 +23,7 @@ namespace Scenes
         {
             SceneManager.LoadScene(SceneIds.WarScene);
         }
+
+        public void LoadNextScene() => SceneManager.LoadScene(SceneIds.GrandpaHouse);
     }
 }
