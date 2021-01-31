@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -2679315250865945399}
   - component: {fileID: 1654835993}
   m_Layer: 0
-  m_Name: BlasterProjectile
+  m_Name: TurretProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 3
-  _damage: 10
+  _damage: 50
 --- !u!212 &5920807252548022242
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -89,7 +89,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b131a4da15ab06549bb6da8fc5547b35, type: 3}
-  m_Color: {r: 0.043704987, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.047468662, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
