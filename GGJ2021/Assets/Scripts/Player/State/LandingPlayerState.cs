@@ -40,6 +40,7 @@ namespace Player.State
             _startTime = Time.time;
         }
 
-        protected override bool ShouldPlayEnterAnimation() => Math.Abs(InputHandler.GetHorizontalAxisValue()) > GlobalConstants.FloatTolerance;
+        protected override bool ShouldPlayEnterAnimation() => 
+            Math.Abs(InputHandler.GetHorizontalAxisValue()) > GlobalConstants.FloatTolerance;
     }
 }

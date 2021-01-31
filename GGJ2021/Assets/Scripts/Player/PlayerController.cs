@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     private bool _lookingRight;
 
     public bool IsGrounded => _isGrounded;
-    public bool IsFalling => _rigidbody.velocity.y < GlobalConstants.FloatTolerance;
+    public bool IsFalling => _rigidbody.velocity.y < -GlobalConstants.FloatTolerance;
 
     private void Awake()
     {

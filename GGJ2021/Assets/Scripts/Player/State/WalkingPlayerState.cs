@@ -20,6 +20,9 @@ namespace Player.State
 
         public override IPlayerState Update()
         {
+            if (PlayerController.IsFalling)
+                return TransitionToState(_playerStateProvider.GetFallingState());
+
             if (!IsMovingHorizontally())
                 return TransitionToState(_playerStateProvider.GetIdleState());
 
