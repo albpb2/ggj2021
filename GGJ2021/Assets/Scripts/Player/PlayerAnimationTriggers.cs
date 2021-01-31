@@ -12,5 +12,6 @@
         public const string ShootCrouched = nameof(ShootCrouched);
         public const string ShootingStateEntered = nameof(ShootingStateEntered);
         public const string LandingStateEntered = nameof(LandingStateEntered);
+        public const string Teleport = nameof(Teleport);
     }
 }

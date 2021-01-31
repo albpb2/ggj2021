@@ -3,6 +3,7 @@ using FMODUnity;
 using Input;
 using Inventory;
 using Pause;
+using Player;
 using Player.State;
 using UnityEngine;
 
@@ -21,9 +22,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform _shootingPoint;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private Gun _equippedGun;
-    [SerializeField] private StudioEventEmitter _jumpEventEmitter;
     [SerializeField] private Collider2D _hitbox;
     [SerializeField] private Collider2D _crouchedHitbox;
+    
+    [Header("Event emitters")]
+    [SerializeField] private StudioEventEmitter _jumpEventEmitter;
+    [SerializeField] private StudioEventEmitter _teleportEventemitter;
     
     private PlayerStateProvider _playerStateProvider;
     private InputHandler _inputHandler;
@@ -53,14 +57,15 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        _state = _playerStateProvider.GetIdleState().EnterState();
+        _teleportEventemitter.Play();
+        PlayAnimationOnce(PlayerAnimationTriggers.Teleport);
         _isGrounded = true;
         _lookingRight = true;
     }
 
     private void Update()
     {
-        if (_pauseManager.IsPaused())
+        if (_pauseManager.IsPaused() || _state == null)
             return;
 
         SetMovement(Vector2.zero);
@@ -105,6 +110,11 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag(Tags.PickableItem))
             _pickableItem = null;
+    }
+
+    public void Activate()
+    {
+        _state = _playerStateProvider.GetIdleState().EnterState();
     }
 
     public void SetMovement(Vector2 movement) => _movement = movement;
