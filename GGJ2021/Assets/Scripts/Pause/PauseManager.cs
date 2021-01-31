@@ -30,7 +30,7 @@ namespace Pause
             _pausePanel.OnPausePanelClosed -= Unpause;
         }
 
-        public bool IsPaused() => Time.timeScale <= 0.01;
+        public bool IsPaused() => Time.timeScale <= GlobalConstants.FloatTolerance;
 
         private bool ShouldPause() => _inputHandler.IsPauseButtonPressed();
 

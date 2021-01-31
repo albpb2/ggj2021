@@ -4,7 +4,7 @@ namespace Player.State
 {
     public class IdlePlayerState : PlayerStateBase
     {
-        private PlayerStateProvider _playerStateProvider;
+        private readonly PlayerStateProvider _playerStateProvider;
         
         public IdlePlayerState(
             PlayerController playerController, 

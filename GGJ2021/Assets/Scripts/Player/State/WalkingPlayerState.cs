@@ -5,7 +5,7 @@ namespace Player.State
 {
     public class WalkingPlayerState : PlayerStateBase
     {
-        private PlayerStateProvider _playerStateProvider;
+        private readonly PlayerStateProvider _playerStateProvider;
         
         public WalkingPlayerState(
             PlayerController playerController,

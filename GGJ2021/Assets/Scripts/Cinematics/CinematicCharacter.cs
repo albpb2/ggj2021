@@ -43,7 +43,6 @@ public class CinematicCharacter : MonoBehaviour
 
     private bool HasArrivedAtTargetPosition()
     {
-        const float distancePrecision = 0.01f;
-        return Vector2.Distance(_currentMovement.targetPosition.position, transform.position) < distancePrecision;
+        return Vector2.Distance(_currentMovement.targetPosition.position, transform.position) < GlobalConstants.FloatTolerance;
     }
 }

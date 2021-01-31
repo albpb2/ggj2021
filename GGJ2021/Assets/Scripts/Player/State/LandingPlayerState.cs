@@ -6,7 +6,7 @@ namespace Player.State
 {
     public class LandingPlayerState : PlayerStateBase
     {
-        private PlayerStateProvider _playerStateProvider;
+        private readonly PlayerStateProvider _playerStateProvider;
         
         public LandingPlayerState(
             PlayerController playerController, 
@@ -40,6 +40,6 @@ namespace Player.State
             _startTime = Time.time;
         }
 
-        protected override bool ShouldPlayEnterAnimation() => Math.Abs(InputHandler.GetHorizontalAxisValue()) > 0.01;
+        protected override bool ShouldPlayEnterAnimation() => Math.Abs(InputHandler.GetHorizontalAxisValue()) > GlobalConstants.FloatTolerance;
     }
 }

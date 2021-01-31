@@ -4,9 +4,7 @@ namespace Player.State
 {
     public class CrouchPlayerState : PlayerStateBase
     {
-        private PlayerController _playerController;
-        private InputHandler _inputHandler;
-        private PlayerStateProvider _playerStateProvider;
+        private readonly PlayerStateProvider _playerStateProvider;
         
         public CrouchPlayerState(
             PlayerController playerController,

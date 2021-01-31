@@ -5,7 +5,7 @@ namespace Player.State
 {
     public class FallingPlayerState : PlayerStateBase
     {
-        private PlayerStateProvider _playerStateProvider;
+        private readonly PlayerStateProvider _playerStateProvider;
         
         public FallingPlayerState(
             PlayerController playerController,
