@@ -1123,6 +1123,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3936694220052336099, guid: d46a7eb5bdc9d7f428573d74be6e12fa, type: 3}
+      propertyPath: Event
+      value: event:/Music/yayo_main
+      objectReference: {fileID: 0}
     - target: {fileID: 7733922214745147314, guid: d46a7eb5bdc9d7f428573d74be6e12fa, type: 3}
       propertyPath: m_Name
       value: SceneManager

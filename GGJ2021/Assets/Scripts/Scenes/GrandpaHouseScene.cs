@@ -45,7 +45,10 @@ public class GrandpaHouseScene : MonoBehaviour
 
         if (_currentCinematicIsFinished && ShouldLoadNextScene())
         {
-            SceneManager.LoadScene(SceneIds.WarScene);
+            var nextScene = GlobalGameState.Instance.GrandpaHouseCinematicIndex >= _cinematics.Length
+                ? SceneIds.ToBeContinued
+                : SceneIds.WarScene;
+            SceneManager.LoadScene(nextScene);
         }
     }
 
