@@ -19,19 +19,23 @@ namespace Player.State
 
         public override IPlayerState Update()
         {
-            if (IsMovingHorizontally())
-                return TransitionToState(_playerStateProvider.GetWalkingState());
-
-            if (ShouldCrouch())
-                return TransitionToState(_playerStateProvider.GetCrouchState());
-
             if (ShouldJump())
                 return TransitionToState(_playerStateProvider.GetJumpingState());
 
+            if (ShouldCrouch())
+                return TransitionToState(_playerStateProvider.GetCrouchState());
+            
             if (ShouldShoot())
+            {
                 Shoot();
-            else if (ShouldStopShooting())
+                return this;
+            }
+            
+            if (ShouldStopShooting())
                 StopShooting();
+
+            if (IsMovingHorizontally())
+                return TransitionToState(_playerStateProvider.GetWalkingState());
 
             return this;
         }

@@ -35,9 +35,10 @@ namespace Player.State
             PlayerController.SetMovement(new Vector2(InputHandler.GetHorizontalAxisValue(), 0));
 
             if (ShouldShoot())
+            {
                 Shoot();
-            else if (ShouldStopShooting())
-                StopShooting();
+                return TransitionToState(_playerStateProvider.GetIdleState());
+            }
 
             return this;
         }

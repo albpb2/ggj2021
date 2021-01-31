@@ -143,7 +143,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixOrientation()
     {
-        if (_lookingRight && _movement.x < 0 || !_lookingRight && _movement.x > 0)
+        var horizontalInput = _inputHandler.GetHorizontalAxisValue();
+        if (_lookingRight && horizontalInput < 0 || !_lookingRight && horizontalInput > 0)
             Flip();
     }
 

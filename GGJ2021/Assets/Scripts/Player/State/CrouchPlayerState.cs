@@ -24,13 +24,17 @@ namespace Player.State
             if (!ShouldCrouch())
                 return TransitionToState(_playerStateProvider.GetIdleState());
 
+            if (ShouldShoot())
+            {
+                Shoot();
+                return this;
+            }
+
+            if (ShouldStopShooting())
+                StopShooting();
+
             if (IsMovingHorizontally())
                 return TransitionToState(_playerStateProvider.GetMovingCrouchState());
-
-            if (ShouldShoot())
-                Shoot();
-            else if (ShouldStopShooting())
-                StopShooting();
 
             return this;
         }
