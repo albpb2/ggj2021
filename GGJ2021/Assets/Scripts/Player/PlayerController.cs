@@ -7,6 +7,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private const float GroundCheckRadius = .01f;
+
+    public delegate void PlayerDiedEventHandler();
+    public event PlayerDiedEventHandler OnPlayerDied;
     
     [SerializeField] private float _velocity = 1;
     [SerializeField] private float _jumpForce = 1;
@@ -121,5 +124,6 @@ public class PlayerController : MonoBehaviour
     private void Die()
     {
         Debug.Log("I'm dead");
+        OnPlayerDied?.Invoke();
     }
 }

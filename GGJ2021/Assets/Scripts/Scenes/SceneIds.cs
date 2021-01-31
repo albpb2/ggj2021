@@ -4,6 +4,6 @@
     {
         public const int Intro = 0;
         public const int GrandpaHouse = 1;
-        public const int MovementTest = 2;
+        public const int WarScene = 2;
     }
 }

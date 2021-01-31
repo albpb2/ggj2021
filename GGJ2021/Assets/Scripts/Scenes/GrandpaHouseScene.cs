@@ -36,7 +36,7 @@ public class GrandpaHouseScene : MonoBehaviour
 
         if (_isCinematicFinished && ShouldLoadNextScene())
         {
-            SceneManager.LoadScene(SceneIds.MovementTest);
+            SceneManager.LoadScene(SceneIds.WarScene);
         }
     }
 
