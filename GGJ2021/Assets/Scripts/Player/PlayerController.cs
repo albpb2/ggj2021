@@ -129,6 +129,11 @@ public class PlayerController : MonoBehaviour
             Die();
         }
     }
+    
+    public void Die()
+    {
+        OnPlayerDied?.Invoke();
+    }
 
     private void FixOrientation()
     {
@@ -140,11 +145,6 @@ public class PlayerController : MonoBehaviour
     {
         _lookingRight = !_lookingRight;
         transform.Rotate(0f, 180f, 0f);
-    }
-
-    private void Die()
-    {
-        OnPlayerDied?.Invoke();
     }
 
     private bool ShouldPickItem() => _pickableItem != null && _inputHandler.IsFire3Pressed();
