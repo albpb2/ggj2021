@@ -14,6 +14,7 @@ public class GameObjectPool<T> : MonoBehaviour where T : MonoBehaviour
         for (var i = 0; i < _numOfItems; i++)
         {
             _items[i] = Instantiate(_prefab).GetComponent<T>();
+            _items[i].transform.SetParent(transform);
             _items[i].gameObject.SetActive(false);
         }
     }
