@@ -18,7 +18,6 @@ namespace Player.State
         
         public override IPlayerState EnterState()
         {
-            Debug.Log("Entering jump");
             PlayerController.TriggerAnimation(PlayerAnimationTriggers.JumpingStateEntered);
             PlayerController.Jump();
             return this;

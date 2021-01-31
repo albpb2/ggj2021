@@ -18,7 +18,6 @@ namespace Player.State
         
         public override IPlayerState EnterState()
         {
-            Debug.Log("Entering fall");
             PlayerController.TriggerAnimation(PlayerAnimationTriggers.FallingStateEntered);
             return this;
         }
