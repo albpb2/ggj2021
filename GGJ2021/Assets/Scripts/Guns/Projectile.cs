@@ -15,10 +15,7 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.isTrigger)
-        {
-            Debug.Log("I hit something!");
             Disable();
-        }
     }
 
     public void Shoot(Vector2 origin, Vector2 direction)
@@ -26,7 +23,6 @@ public class Projectile : MonoBehaviour
         transform.position = origin;
         gameObject.SetActive(true);
         _rigidbody.velocity = direction * _speed;
-        Debug.Log("BANG");
         StartCoroutine(DisableAfterTime());
     }
 
@@ -34,7 +30,6 @@ public class Projectile : MonoBehaviour
     {
         const int millisecondsDuration = 500;
         yield return new WaitForSeconds(millisecondsDuration / 1000f);
-        Debug.Log("Disabling after time");
         Disable();
     }
 
