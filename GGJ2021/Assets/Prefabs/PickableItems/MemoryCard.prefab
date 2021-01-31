@@ -131,6 +131,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _itemNameForDisplayText: la tarjeta
 --- !u!61 &6716564244038370031
 BoxCollider2D:
   m_ObjectHideFlags: 0
