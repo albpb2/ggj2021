@@ -1,4 +1,6 @@
-﻿using Pause;
+﻿using System;
+using FMODUnity;
+using Pause;
 using UnityEngine;
 using Random = System.Random;
 
@@ -17,18 +19,23 @@ namespace Enemies
         private Random _random;
 
         private Animator _animator;
+        private StudioEventEmitter _studioEventEmitter;
 
         private Vector2 _shootingPointPosition;
         private float _lastCheckTime;
         private bool _playerWasVisible;
         private float _nextPlayerCheck;
 
+        private void Awake()
+        {
+            _animator = GetComponent<Animator>();
+            _studioEventEmitter = GetComponent<StudioEventEmitter>();
+        }
+
         private void Start()
         {
             _pauseManager = FindObjectOfType<PauseManager>();
             _random = new Random();
-
-            _animator = GetComponent<Animator>();
             
             _shootingPointPosition = _shootingPoint.position;
             _nextPlayerCheck = _maxPlayerCheckFrequencySeconds;
@@ -74,8 +81,12 @@ namespace Enemies
         private void Shoot()
         {
             var projectile = _projectilePool.GetNextItem();
+            
             const string animationTrigger = "Shoot";
             _animator.SetTrigger(animationTrigger);
+            
+            _studioEventEmitter.Play();
+            
             projectile.Shoot(_shootingPoint.position, transform.right);
         }
     }
