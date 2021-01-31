@@ -992,6 +992,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MachineGun2
       objectReference: {fileID: 0}
+    - target: {fileID: 864416069711493638, guid: c48b0b29792c97b4bba9b3e1f5b13e0b, type: 3}
+      propertyPath: _projectilePool
+      value: 
+      objectReference: {fileID: 4399641706377326265}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c48b0b29792c97b4bba9b3e1f5b13e0b, type: 3}
 --- !u!4 &354287410 stripped
