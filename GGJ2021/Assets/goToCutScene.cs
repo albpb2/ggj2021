@@ -3,22 +3,21 @@ using Scenes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class IntroScene : MonoBehaviour
+public class goToCutScene : MonoBehaviour
 {
     private InputHandler _inputHandler;
 
     private bool _transitionToNextSceneIsEnabled;
-    
+
     private void Start()
     {
         _inputHandler = FindObjectOfType<InputHandler>();
-        _transitionToNextSceneIsEnabled = true;
     }
 
     private void Update()
     {
         if (ShouldLoadNextScene())
-            SceneManager.LoadScene(SceneIds.Intro);
+            SceneManager.LoadScene(SceneIds.GrandpaHouse);
     }
 
     public void EnableTransitionToNextScene()
