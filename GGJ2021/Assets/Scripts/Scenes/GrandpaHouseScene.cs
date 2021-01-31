@@ -1,4 +1,6 @@
-﻿using Cinematics;
+﻿using System;
+using Cinematics;
+using FMODUnity;
 using Input;
 using Pause;
 using Scenes;
@@ -8,13 +10,14 @@ using UnityEngine.SceneManagement;
 public class GrandpaHouseScene : MonoBehaviour
 {
     [SerializeField] private Cinematic[] _cinematics;
+    [SerializeField] private StudioEventEmitter _studioEventEmitter;
     
     private InputHandler _inputHandler;
     private PauseManager _pauseManager;
 
     private bool _currentCinematicIsFinished;
     private Cinematic _currentCinematic;
-    
+
     private void Start()
     {
         _inputHandler = FindObjectOfType<InputHandler>();
@@ -44,6 +47,16 @@ public class GrandpaHouseScene : MonoBehaviour
         {
             SceneManager.LoadScene(SceneIds.WarScene);
         }
+    }
+
+    private void OnEnable()
+    {
+        _studioEventEmitter.Play();
+    }
+
+    private void OnDisable()
+    {
+        _studioEventEmitter.Stop();
     }
 
     private bool ShouldLoadNextScene() => _inputHandler.IsAnyButtonPressed();
