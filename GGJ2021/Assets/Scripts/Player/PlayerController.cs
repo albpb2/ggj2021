@@ -1,5 +1,6 @@
 ﻿using System;
 using Input;
+using Pause;
 using Player.State;
 using UnityEngine;
 
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
     
     private PlayerStateProvider _playerStateProvider;
     private InputHandler _inputHandler;
+    private PauseManager _pauseManager;
     
     private Rigidbody2D _rigidbody;
     private Animator _animator;
@@ -32,6 +34,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _inputHandler = FindObjectOfType<InputHandler>();
+        _pauseManager = FindObjectOfType<PauseManager>();
         _playerStateProvider = new PlayerStateProvider(this, _inputHandler);
 
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -47,6 +50,9 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (_pauseManager.IsPaused())
+            return;
+
         _state = _state.Update();
         FixOrientation();
     }
