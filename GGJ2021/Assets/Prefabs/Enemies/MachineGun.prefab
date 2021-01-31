@@ -153,7 +153,7 @@ MonoBehaviour:
   _playerLayer:
     serializedVersion: 2
     m_Bits: 1024
-  _range: 3
+  _range: 2
   _playerCheckFrequencySeconds: 0.5
   _projectilePool: {fileID: 0}
 --- !u!114 &864416069711493639

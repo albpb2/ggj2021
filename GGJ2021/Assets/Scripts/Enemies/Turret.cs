@@ -13,12 +13,18 @@ namespace Enemies
 
         private PauseManager _pauseManager;
 
+        private Animator _animator;
+
         private Vector2 _shootingPointPosition;
         private float _lastCheckTime;
+        private bool _playerWasVisible;
 
         private void Start()
         {
             _pauseManager = FindObjectOfType<PauseManager>();
+
+            _animator = GetComponent<Animator>();
+            
             _shootingPointPosition = _shootingPoint.position;
         }
 
@@ -29,10 +35,11 @@ namespace Enemies
 
             if (Time.time - _lastCheckTime >= _playerCheckFrequencySeconds)
             {
-                if (IsPlayerVisible())
-                {
+                var playerIsVisible = IsPlayerVisible();
+                if (playerIsVisible)
                     Shoot();
-                }
+                
+                UpdateAnimation(playerIsVisible);
 
                 _lastCheckTime = Time.time;
             }
@@ -44,9 +51,21 @@ namespace Enemies
             return hit.collider != null;
         }
 
+        private void UpdateAnimation(bool playerIsVisible)
+        {
+            const string animationCondition = "PlayerIsVisible";
+            if (playerIsVisible && !_playerWasVisible)
+                _animator.SetBool(animationCondition, true);
+            else if (!playerIsVisible && _playerWasVisible)
+                _animator.SetBool(animationCondition, false);
+            _playerWasVisible = playerIsVisible;
+        }
+
         private void Shoot()
         {
             var projectile = _projectilePool.GetNextItem();
+            const string animationTrigger = "Shoot";
+            _animator.SetTrigger(animationTrigger);
             projectile.Shoot(_shootingPoint.position, transform.right);
         }
     }
