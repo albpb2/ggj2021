@@ -29,6 +29,9 @@ namespace Player.State
 
             if (!HasEnoughVelocityToRoll() || ShouldShoot())
                 return TransitionToState(_playerStateProvider.GetWalkingState());
+
+            if (ShouldJump())
+                return TransitionToState(_playerStateProvider.GetJumpingState());
             
             const float expectedDurationSeconds = .5f;
             if (Time.time - _startTime > expectedDurationSeconds)
@@ -44,7 +47,7 @@ namespace Player.State
             _startTime = Time.time;
         }
 
-        protected override bool ShouldPlayEnterAnimation() => HasEnoughVelocityToRoll() && !ShouldShoot();
+        protected override bool ShouldPlayEnterAnimation() => HasEnoughVelocityToRoll() && !ShouldShoot() && !ShouldJump();
 
         private bool HasEnoughVelocityToRoll() => Math.Abs(PlayerController.Velocity.x) >= MinVelocityToRoll;
     }
