@@ -29,6 +29,12 @@ namespace Player.State
             {
                 PlayerController.PlayAnimation(AnimationTriggerName);
             }
+            
+            if (IsCrouched)
+                PlayerController.Crouch();
+            else
+                PlayerController.StopCrouching();
+            
             InitializeState();
             return this;
         }

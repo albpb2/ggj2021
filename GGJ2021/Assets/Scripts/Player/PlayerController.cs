@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private Gun _equippedGun;
     [SerializeField] private StudioEventEmitter _jumpEventEmitter;
+    [SerializeField] private Collider2D _hitbox;
+    [SerializeField] private Collider2D _crouchedHitbox;
     
     private PlayerStateProvider _playerStateProvider;
     private InputHandler _inputHandler;
@@ -112,6 +114,18 @@ public class PlayerController : MonoBehaviour
     {
         _jumpEventEmitter.Play();
         _rigidbody.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+    }
+
+    public void Crouch()
+    {
+        _hitbox.enabled = false;
+        _crouchedHitbox.enabled = true;
+    }
+
+    public void StopCrouching()
+    {
+        _hitbox.enabled = true;
+        _crouchedHitbox.enabled = false;
     }
 
     public void Shoot()
