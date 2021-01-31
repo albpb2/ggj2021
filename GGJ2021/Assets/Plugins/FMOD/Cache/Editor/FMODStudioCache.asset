@@ -63,6 +63,29 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 1
+--- !u!114 &-3584553950743902803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/yayo_main
+  m_EditorClassIdentifier: 
+  Path: event:/Music/yayo_main
+  guid: 1754c39b4c954c49b93fb8d636a2ceda
+  Banks:
+  - {fileID: 4881116481025138592}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 76000
 --- !u!114 &-1694747059809109261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,7 +125,6 @@ MonoBehaviour:
   - {fileID: 6106518718057860587}
   - {fileID: 4881116481025138592}
   EditorEvents:
-  - {fileID: 7465113569464287494}
   - {fileID: -6636134905953807019}
   - {fileID: -8049443408118101016}
   - {fileID: -1694747059809109261}
@@ -111,12 +133,14 @@ MonoBehaviour:
   - {fileID: 5933482732905420521}
   - {fileID: 4343076455554861271}
   - {fileID: 1076700213442479188}
+  - {fileID: -3584553950743902803}
+  - {fileID: 7745869543218040389}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4881116481025138592}
   StringsBanks:
   - {fileID: 6106518718057860587}
-  stringsBankWriteTime: 637476993333503619
+  stringsBankWriteTime: 637477016017376718
   cacheVersion: 4
 --- !u!114 &1076700213442479188
 MonoBehaviour:
@@ -201,7 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FMODBuild/Master.bank
   Name: Master
-  lastModified: 637476993333503619
+  lastModified: 637477016017366718
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -265,11 +289,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FMODBuild/Master.strings.bank
   Name: Master.strings
-  lastModified: 637476993333503619
+  lastModified: 637477016017376718
   LoadResult: 0
   FileSizes:
   - Name: 
-    Value: 1176
+    Value: 1188
   Exists: 1
 --- !u!114 &7465113569464287494
 MonoBehaviour:
@@ -285,8 +309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/YAYO MAIN
   guid: 1754c39b4c954c49b93fb8d636a2ceda
-  Banks:
-  - {fileID: 4881116481025138592}
+  Banks: []
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -295,6 +318,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 76000
+--- !u!114 &7745869543218040389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/combat_theme
+  m_EditorClassIdentifier: 
+  Path: event:/Music/combat_theme
+  guid: 4cf9b4eaaf109f42bfb50949af373c28
+  Banks:
+  - {fileID: 4881116481025138592}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 96000
 --- !u!114 &7843339675957105113
 MonoBehaviour:
   m_ObjectHideFlags: 0
