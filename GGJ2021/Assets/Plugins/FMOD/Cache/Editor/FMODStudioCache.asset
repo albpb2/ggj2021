@@ -1,5 +1,74 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8049443408118101016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/turret_shot
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/turret_shot
+  guid: 4f4ea106d8f8de4e8f98fcb186e5b12e
+  Banks:
+  - {fileID: 4881116481025138592}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1000
+--- !u!114 &-6636134905953807019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/door_open
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/door_open
+  guid: 0f699941153db74e922e370f80421c3f
+  Banks:
+  - {fileID: 4881116481025138592}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 3500
+--- !u!114 &-1694747059809109261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/player_shot
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/player_shot
+  guid: 6c7756b9ec31044f81e8a624a3f46968
+  Banks:
+  - {fileID: 4881116481025138592}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1000
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17,13 +86,90 @@ MonoBehaviour:
   - {fileID: 4881116481025138592}
   EditorEvents:
   - {fileID: 7465113569464287494}
+  - {fileID: -6636134905953807019}
+  - {fileID: -8049443408118101016}
+  - {fileID: -1694747059809109261}
+  - {fileID: 2785651504611162619}
+  - {fileID: 5208036804271270404}
+  - {fileID: 5933482732905420521}
+  - {fileID: 4343076455554861271}
+  - {fileID: 1076700213442479188}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4881116481025138592}
   StringsBanks:
   - {fileID: 6106518718057860587}
-  stringsBankWriteTime: 637476344980588020
+  stringsBankWriteTime: 637476669521985766
   cacheVersion: 4
+--- !u!114 &1076700213442479188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/bomb_impact
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/bomb_impact
+  guid: c2731cec2f15ac4088a51b99af58f43b
+  Banks:
+  - {fileID: 4881116481025138592}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2500
+--- !u!114 &2785651504611162619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/door_button_release
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/door_button_release
+  guid: 784c17e06d80214c826e2cae5b94916f
+  Banks:
+  - {fileID: 4881116481025138592}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 500
+--- !u!114 &4343076455554861271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/door_button_press
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/door_button_press
+  guid: b774bae6c2827c4aa4ffff35649d610a
+  Banks:
+  - {fileID: 4881116481025138592}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 500
 --- !u!114 &4881116481025138592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38,10 +184,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FMODBuild/Master.bank
   Name: Master
-  lastModified: 637476344980458327
+  lastModified: 637476669521945873
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &5208036804271270404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/bomb_drop
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/bomb_drop
+  guid: 81da8b4de5fe834a8999e9ddb631ad77
+  Banks:
+  - {fileID: 4881116481025138592}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
+--- !u!114 &5933482732905420521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/player_jump
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/player_jump
+  guid: 9e1c6dca14799346a2bd8fda44d9525a
+  Banks:
+  - {fileID: 4881116481025138592}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1250
 --- !u!114 &6106518718057860587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,11 +248,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FMODBuild/Master.strings.bank
   Name: Master.strings
-  lastModified: 637476344980588020
+  lastModified: 637476669521985766
   LoadResult: 0
   FileSizes:
   - Name: 
-    Value: 734
+    Value: 1176
   Exists: 1
 --- !u!114 &7465113569464287494
 MonoBehaviour:
@@ -80,8 +272,26 @@ MonoBehaviour:
   - {fileID: 4881116481025138592}
   IsStream: 1
   Is3D: 0
-  IsOneShot: 1
-  Parameters: []
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 7843339675957105113}
   MinDistance: 0
   MaxDistance: 0
   Length: 76000
+--- !u!114 &7843339675957105113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/YAYO MAIN/volume
+  m_EditorClassIdentifier: 
+  Name: volume
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
