@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using FMODUnity;
+using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
@@ -6,6 +8,13 @@ public class Explosion : MonoBehaviour
     [SerializeField] private int _damage;
     
     private PlayerController _playerController;
+    
+    private StudioEventEmitter _studioEventEmitter;
+
+    private void Awake()
+    {
+        _studioEventEmitter = GetComponent<StudioEventEmitter>();
+    }
 
     private void Start()
     {
@@ -17,7 +26,11 @@ public class Explosion : MonoBehaviour
         transform.position = position;
     }
 
-    public void Enable() => gameObject.SetActive(true);
+    public void Enable()
+    {
+        gameObject.SetActive(true);
+        _studioEventEmitter.Play();
+    }
 
     // Used from animation
     public void Disable() => gameObject.SetActive(false);
