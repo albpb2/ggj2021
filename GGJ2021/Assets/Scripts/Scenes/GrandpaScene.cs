@@ -3,7 +3,7 @@ using Scenes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class IntroScene : MonoBehaviour
+public class GrandpaScene : MonoBehaviour
 {
     private InputHandler _inputHandler;
 
@@ -18,7 +18,7 @@ public class IntroScene : MonoBehaviour
     private void Update()
     {
         if (ShouldLoadNextScene())
-            SceneManager.LoadScene(SceneIds.Intro);
+            SceneManager.LoadScene(SceneIds.GrandpaHouse);
     }
 
     public void EnableTransitionToNextScene()
