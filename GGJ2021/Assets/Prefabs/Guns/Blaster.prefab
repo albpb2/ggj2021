@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _projectilePool: {fileID: 0}
+  _reloadTime: 0.3

@@ -14,10 +14,11 @@ public class Gun : MonoBehaviour
         
         var projectile = _projectilePool.GetNextItem();
         projectile.Shoot(shootPoint.position, direction);
+        _lastShootTime = Time.time;
     }
 
     private bool CanShoot()
     {
-        return Time.deltaTime - _lastShootTime > _reloadTime;
+        return Time.time - _lastShootTime > _reloadTime;
     }
 }
