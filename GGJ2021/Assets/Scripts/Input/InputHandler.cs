@@ -11,5 +11,6 @@ namespace Input
         public bool IsFire1Pressed() => UnityInput.GetButton(InputNames.Fire1);
         public bool IsAnyButtonPressed() => UnityInput.anyKeyDown;
         public bool IsPauseButtonPressed() => UnityInput.GetButtonDown(InputNames.Pause);
+        public bool IsFire3Pressed() => UnityInput.GetButton(InputNames.Fire1);
     }
 }

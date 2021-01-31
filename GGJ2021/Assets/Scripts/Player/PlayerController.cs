@@ -1,5 +1,6 @@
 ﻿using System;
 using Input;
+using Inventory;
 using Pause;
 using Player.State;
 using UnityEngine;
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 _movement;
     private bool _isGrounded;
     private bool _lookingRight;
+    private PickableItem _pickableItem;
 
     public bool IsGrounded => _isGrounded;
     public bool IsFalling => _rigidbody.velocity.y < -GlobalConstants.FloatTolerance;
@@ -58,13 +60,18 @@ public class PlayerController : MonoBehaviour
 
         SetMovement(Vector2.zero);
         _state = _state.Update();
-        FixOrientation();
+
+        if (ShouldPickItem())
+        {
+            _pickableItem.PickItem();
+        }
     }
 
     private void FixedUpdate()
     {
         var horizontalVelocity = _movement.x * _velocity;
         _rigidbody.velocity = new Vector2(horizontalVelocity, _rigidbody.velocity.y);
+        FixOrientation();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -81,6 +88,18 @@ public class PlayerController : MonoBehaviour
         {
             _isGrounded = false;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag(Tags.PickableItem))
+            _pickableItem = other.GetComponent<PickableItem>();
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag(Tags.PickableItem))
+            _pickableItem = null;
     }
 
     public void SetMovement(Vector2 movement) => _movement = movement;
@@ -125,4 +144,6 @@ public class PlayerController : MonoBehaviour
     {
         OnPlayerDied?.Invoke();
     }
+
+    private bool ShouldPickItem() => _pickableItem != null && _inputHandler.IsFire3Pressed();
 }

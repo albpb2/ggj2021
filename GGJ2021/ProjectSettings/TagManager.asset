@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - PausePanel
+  - PickableItem
   layers:
   - Default
   - TransparentFX
