@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     
     private Rigidbody2D _rigidbody;
     private Animator _animator;
+    private Light _light;
 
     private IPlayerState _state;
     private Vector2 _movement;
@@ -55,6 +56,7 @@ public class PlayerController : MonoBehaviour
 
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _light = GetComponentInChildren<Light>();
     }
 
     private void Start()
@@ -190,6 +192,7 @@ public class PlayerController : MonoBehaviour
     {
         _lookingRight = !_lookingRight;
         transform.Rotate(0f, 180f, 0f);
+        _light.transform.position = Vector3.Scale(_light.transform.position, new Vector3(1, 1, -1));
     }
 
     private bool ShouldPickItem() => _pickableItem != null && _inputHandler.IsFire3Pressed();
