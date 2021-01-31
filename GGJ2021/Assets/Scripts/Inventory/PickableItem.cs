@@ -24,7 +24,7 @@ namespace Inventory
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag(Tags.Player) && _inGameTextManager != null && !string.IsNullOrWhiteSpace(_itemNameForDisplayText))
-                _inGameTextManager.DisplayText($"Usa ACCION para recoger {_itemNameForDisplayText}");
+                _inGameTextManager.DisplayText($"USA -COGER- para recoger {_itemNameForDisplayText}");
         }
 
         private void OnTriggerExit2D(Collider2D other)
