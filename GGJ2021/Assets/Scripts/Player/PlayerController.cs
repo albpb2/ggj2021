@@ -1,7 +1,6 @@
 ﻿using System;
 using FMODUnity;
 using Input;
-using Inventory;
 using Pause;
 using Player;
 using Player.State;
@@ -42,7 +41,6 @@ public class PlayerController : MonoBehaviour
     private bool _isGrounded;
     private bool _lookingRight;
     private bool _isLanding;
-    private PickableItem _pickableItem;
 
     public bool IsGrounded => _isGrounded;
     public bool IsFalling => !_isGrounded && _rigidbody.velocity.y < -GlobalConstants.FloatTolerance;
@@ -76,11 +74,6 @@ public class PlayerController : MonoBehaviour
 
         SetMovement(Vector2.zero);
         _state = _state.Update();
-
-        if (ShouldPickItem())
-        {
-            _pickableItem.PickItem();
-        }
     }
 
     private void FixedUpdate()
@@ -104,18 +97,6 @@ public class PlayerController : MonoBehaviour
         {
             _isGrounded = false;
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag(Tags.PickableItem))
-            _pickableItem = other.GetComponent<PickableItem>();
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag(Tags.PickableItem))
-            _pickableItem = null;
     }
 
     public void Activate()
@@ -215,6 +196,4 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(0f, 180f, 0f);
         _light.transform.position = Vector3.Scale(_light.transform.position, new Vector3(1, 1, -1));
     }
-
-    private bool ShouldPickItem() => _pickableItem != null && _inputHandler.IsFire3Pressed();
 }

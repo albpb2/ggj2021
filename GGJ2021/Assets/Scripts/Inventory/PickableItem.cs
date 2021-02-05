@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Input;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Inventory
@@ -9,10 +10,37 @@ namespace Inventory
         [SerializeField] private string _itemNameForDisplayText;
 
         private InGameTextManager _inGameTextManager;
+        private InputHandler _inputHandler;
+
+        private bool _canBePicked;
 
         private void Start()
         {
             _inGameTextManager = FindObjectOfType<InGameTextManager>();
+            _inputHandler = FindObjectOfType<InputHandler>();
+        }
+
+        private void Update()
+        {
+            if (ShouldPickItem())
+                PickItem();
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag(Tags.Player))
+            {
+                _canBePicked = true;
+                
+                if (ShouldDisplayText())
+                    _inGameTextManager.DisplayText($"Pulsa -COGER- para recoger {_itemNameForDisplayText}");
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.CompareTag(Tags.Player) && _inGameTextManager != null)
+                _inGameTextManager.ClearText();
         }
 
         public void PickItem()
@@ -21,16 +49,9 @@ namespace Inventory
             Destroy(gameObject);
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.CompareTag(Tags.Player) && _inGameTextManager != null && !string.IsNullOrWhiteSpace(_itemNameForDisplayText))
-                _inGameTextManager.DisplayText($"USA -COGER- para recoger {_itemNameForDisplayText}");
-        }
+        private bool ShouldDisplayText() => _inGameTextManager != null && !string.IsNullOrWhiteSpace(_itemNameForDisplayText);
+            
 
-        private void OnTriggerExit2D(Collider2D other)
-        {
-            if (other.CompareTag(Tags.Player) && _inGameTextManager != null)
-                _inGameTextManager.ClearText();
-        }
+        private bool ShouldPickItem() => _canBePicked && _inputHandler.IsFire3Pressed();
     }
 }
