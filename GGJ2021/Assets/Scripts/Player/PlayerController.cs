@@ -41,10 +41,12 @@ public class PlayerController : MonoBehaviour
     private Vector2 _movement;
     private bool _isGrounded;
     private bool _lookingRight;
+    private bool _isLanding;
     private PickableItem _pickableItem;
 
     public bool IsGrounded => _isGrounded;
     public bool IsFalling => !_isGrounded && _rigidbody.velocity.y < -GlobalConstants.FloatTolerance;
+    public bool IsLanding => _isLanding;
     public Vector2 Velocity => _rigidbody.velocity;
     public Gun EquippedGun => _equippedGun;
 
@@ -147,10 +149,18 @@ public class PlayerController : MonoBehaviour
             _equippedGun.Shoot(_shootingPoint, transform.right);
     }
 
-    public void PlayAnimationOnce(string triggerName) => _animator.SetTrigger(triggerName);
+    public void PlayAnimationOnce(string triggerName)
+    {
+        Debug.Log($"Playing animation once: {triggerName}");
+        _animator.SetTrigger(triggerName);
+    }
 
-    public void PlayAnimation(string triggerName) => _animator.SetBool(triggerName, true);
-    
+    public void PlayAnimation(string triggerName)
+    {
+        Debug.Log($"Playing animation: {triggerName}");
+        _animator.SetBool(triggerName, true);
+    }
+
     public void StopAnimation(string triggerName) => _animator.SetBool(triggerName, false);
 
     public void Hurt(int damage)
@@ -179,6 +189,17 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log($"Equipping {gun.name}");
         _equippedGun = gun;
+    }
+
+    public void StartLanding()
+    {
+        _isLanding = true;
+    }
+    
+    // Used from animation
+    public void HandleFinishedLanding()
+    {
+        _isLanding = false;
     }
 
     private void FixOrientation()

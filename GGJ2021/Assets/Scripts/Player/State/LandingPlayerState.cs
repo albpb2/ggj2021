@@ -6,7 +6,7 @@ namespace Player.State
 {
     public class LandingPlayerState : PlayerStateBase
     {
-        private const float MinVelocityToRoll = 1f;
+        private const float MinVelocityToRoll = .5f;
         
         private readonly PlayerStateProvider _playerStateProvider;
         
@@ -20,23 +20,18 @@ namespace Player.State
         }
 
         protected override string AnimationTriggerName => PlayerAnimationTriggers.LandingStateEntered;
-
-        private float _startTime;
         
         public override IPlayerState Update()
         {
-            Debug.Log($"Horizontal velocity: {PlayerController.Velocity.x}");
+            if (!PlayerController.IsLanding) 
+                return TransitionToState(_playerStateProvider.GetWalkingState());
 
             if (!HasEnoughVelocityToRoll() || ShouldShoot())
                 return TransitionToState(_playerStateProvider.GetWalkingState());
 
             if (ShouldJump())
                 return TransitionToState(_playerStateProvider.GetJumpingState());
-            
-            const float expectedDurationSeconds = .5f;
-            if (Time.time - _startTime > expectedDurationSeconds)
-                return TransitionToState(_playerStateProvider.GetWalkingState());
-            
+
             PlayerController.SetMovement(new Vector2(InputHandler.GetHorizontalAxisValue(), 0));
 
             return this;
@@ -44,10 +39,13 @@ namespace Player.State
 
         protected override void InitializeState()
         {
-            _startTime = Time.time;
+            if (ShouldRoll()) 
+                PlayerController.StartLanding();
         }
 
-        protected override bool ShouldPlayEnterAnimation() => HasEnoughVelocityToRoll() && !ShouldShoot() && !ShouldJump();
+        protected override bool ShouldPlayEnterAnimation() => ShouldRoll();
+        
+        private bool ShouldRoll() => HasEnoughVelocityToRoll() && !ShouldShoot() && !ShouldJump();
 
         private bool HasEnoughVelocityToRoll() => Math.Abs(PlayerController.Velocity.x) >= MinVelocityToRoll;
     }
