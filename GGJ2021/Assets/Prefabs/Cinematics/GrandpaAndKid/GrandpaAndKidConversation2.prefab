@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8758691837628459685
+--- !u!1 &1723623376820049684
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,69 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8758691837628459684}
-  m_Layer: 0
-  m_Name: Positions
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8758691837628459684
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8758691837628459685}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5167425, y: 0.23782393, z: 10.043625}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 8758691838378618776}
-  m_Father: {fileID: 8758691839166345319}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8758691838378618777
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8758691838378618776}
-  m_Layer: 0
-  m_Name: KidPositionCloseToGrandpa
-  m_TagString: Untagged
-  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8758691838378618776
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8758691838378618777}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.63, y: -2.33, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8758691837628459684}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8758691839166345316
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8758691839166345319}
-  - component: {fileID: 8758691839166345317}
+  - component: {fileID: 1723623376820049691}
+  - component: {fileID: 1723623376820049690}
   m_Layer: 0
   m_Name: GrandpaAndKidConversation2
   m_TagString: Untagged
@@ -78,61 +17,59 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8758691839166345319
+--- !u!4 &1723623376820049691
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8758691839166345316}
+  m_GameObject: {fileID: 1723623376820049684}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 8758691837628459684}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8758691839166345317
+--- !u!114 &1723623376820049690
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8758691839166345316}
+  m_GameObject: {fileID: 1723623376820049684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c51735ba18ce40be91f6c937e8127a9d, type: 3}
+  m_Script: {fileID: 11500000, guid: 005197a10aa3423ba5a8ac4d72abfa8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _kid: {fileID: 0}
-  _grandpa: {fileID: 0}
-  _kidDialogBox: {fileID: 0}
-  _grandpaDialogBox: {fileID: 0}
-  _kidDialog1:
-    text: Wow, parece que funciona.
-  _grandpaDialog1:
-    text: "Todav\xEDa me acuerdo de ese d\xEDa. Eso fue como ir a la guerra: y me
+  _lines:
+  - text: Wow, parece que funciona.
+    dialogBox: {fileID: 0}
+  - text: "Todav\xEDa me acuerdo de ese d\xEDa. Eso fue como ir a la guerra: y me
       toc\xF3 el bando de los perdedores."
-  _kidDialog2:
-    text: "\xBFA la guerra?"
-  _grandpaDialog2:
-    text: "S\xED muchacho. Tuve que negociar y enfrentarme a esos tiburones que quer\xEDan
+    dialogBox: {fileID: 0}
+  - text: "\xBFA la guerra?"
+    dialogBox: {fileID: 0}
+  - text: "S\xED muchacho. Tuve que negociar y enfrentarme a esos tiburones que quer\xEDan
       todo por una miseria de dinero. Pero le hab\xEDa prometido a tu abuela que
       dejar\xEDa ese trabajo, y nunca me he arrepentido de ello."
-  _kidDialog3:
-    text: "\xBFLa abuela te pidi\xF3 vender tu mina de bitcoins?"
-  _grandpaDialog3:
-    text: "S\xED, estaba harta de que nunca estuviese en casa. Me dio un ultim\xE1tum:
+    dialogBox: {fileID: 0}
+  - text: "\xBFLa abuela te pidi\xF3 vender tu mina de bitcoins?"
+    dialogBox: {fileID: 0}
+  - text: "S\xED, estaba harta de que nunca estuviese en casa. Me dio un ultim\xE1tum:
       o la mina o ella. Y ya sabes el resto de la historia."
-  _kidDialog4:
-    text: "Nunca hablas de la abuela. \xBFC\xF3mo la conociste?"
-  _grandpaDialog4:
-    text: "Mi maravillosa Ellie. Todas las muchachas me quer\xEDan a m\xED, pero
-      yo estaba enamorado de ella. \nNos con\u2026 con\u2026 con\u2026"
-  _kidDialog5:
-    text: "Joder, con el viejo. Ya se ha con... con... congelado. \xBF\xBFQu\xE9??
+    dialogBox: {fileID: 0}
+  - text: "Nunca hablas de la abuela. \xBFC\xF3mo la conociste?"
+    dialogBox: {fileID: 0}
+  - text: "Mi maravillosa Ellie. Todas las muchachas me quer\xEDan a m\xED, pero
+      yo estaba enamorado de ella."
+    dialogBox: {fileID: 0}
+  - text: "Nos con\u2026 con\u2026 con\u2026"
+    dialogBox: {fileID: 0}
+  - text: "Joder, con el viejo. Ya se ha con... con... congelado. \xBF\xBFQu\xE9??
       \xBF\xA1Esto se pega!? "
-  _kidDialog6:
-    text: "Abuelo, tengo que volver a entrar a tu cerebro y buscar un nuevo fragmento
+    dialogBox: {fileID: 0}
+  - text: "Abuelo, tengo que volver a entrar a tu cerebro y buscar un nuevo fragmento
       de memoria. Espero que esta vez guardes el recuerdo en un sitio pac\xEDfico."
+    dialogBox: {fileID: 0}

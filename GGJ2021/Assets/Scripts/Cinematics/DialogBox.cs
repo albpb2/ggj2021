@@ -55,10 +55,10 @@ namespace Cinematics
             }
         }
 
-        public void StartDialog(DialogText text)
+        public void StartDialog(string text)
         {
             const string lineSeparator = "\n";
-            _lines = text.text.Split(new []{lineSeparator}, StringSplitOptions.None);
+            _lines = text.Split(new []{lineSeparator}, StringSplitOptions.None);
             _buttonPressedOnce = false;
             Finished = false;
             _currentLine = 0;

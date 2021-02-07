@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class Speak : CustomYieldInstruction
 {
-    private DialogBox _dialogBox;
+    private DialogLine _dialogLine;
     
-    public Speak(DialogBox dialogBox, DialogText dialogText)
+    public Speak(DialogLine dialogLine)
     {
-        _dialogBox = dialogBox;
-        _dialogBox.StartDialog(dialogText);
+        _dialogLine = dialogLine;
+        _dialogLine.dialogBox.StartDialog(_dialogLine.text);
     }
 
-    public override bool keepWaiting => !_dialogBox.Finished;
+    public override bool keepWaiting => !_dialogLine.dialogBox.Finished;
 }
