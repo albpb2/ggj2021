@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: CONTROLES
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d632067e71aec44eeb8f396cc2cb2b66, type: 2}
-  m_sharedMaterial: {fileID: 5365318718267395411, guid: d632067e71aec44eeb8f396cc2cb2b66, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 18c609c717e3d4a7d8c40c837e14a02d, type: 2}
+  m_sharedMaterial: {fileID: 8673970296607188778, guid: 18c609c717e3d4a7d8c40c837e14a02d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -92,8 +92,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -168,8 +168,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13, y: 19}
-  m_SizeDelta: {x: 598.50195, y: 121.26936}
+  m_AnchoredPosition: {x: 13, y: 74}
+  m_SizeDelta: {x: 598.50195, y: 118.69447}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1916571452
 CanvasRenderer:
@@ -199,14 +199,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'X / ESPACIO - SALTAR
-
-    [] / RATON 1 - DISPARAR
-
-    O / RATON 2 - COGER'
+  m_text: "X / ESPACIO - SALTAR\n[] / RAT\xD3N 1 - DISPARAR\nO / RAT\xD3N  2 - COGER"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d632067e71aec44eeb8f396cc2cb2b66, type: 2}
-  m_sharedMaterial: {fileID: 5365318718267395411, guid: d632067e71aec44eeb8f396cc2cb2b66, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3bef68a661fbe440abc7ab1eec496ebb, type: 2}
+  m_sharedMaterial: {fileID: -4145471711775669851, guid: 3bef68a661fbe440abc7ab1eec496ebb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -230,19 +226,19 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 26
+  m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 100
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -306,7 +302,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 9.720032, y: -128.65002}
+  m_AnchoredPosition: {x: 9.720215, y: -128.6499}
   m_SizeDelta: {x: -942.12756, y: -563.7023}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7639188042169428976
@@ -337,13 +333,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'PULSA START / ESC PARA VOLVER
+  m_text: 'PULSA OPTION / ESC PARA VOLVER
 
 
-    PULSA SALTAR BOTON PARA SALIR'
+    PULSA SALTAR PARA SALIR'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d632067e71aec44eeb8f396cc2cb2b66, type: 2}
-  m_sharedMaterial: {fileID: 5365318718267395411, guid: d632067e71aec44eeb8f396cc2cb2b66, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3bef68a661fbe440abc7ab1eec496ebb, type: 2}
+  m_sharedMaterial: {fileID: -4145471711775669851, guid: 3bef68a661fbe440abc7ab1eec496ebb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -367,8 +363,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
