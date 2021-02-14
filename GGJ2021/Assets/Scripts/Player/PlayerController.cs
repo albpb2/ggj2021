@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private const float GroundCheckRadius = .01f;
+    private const float GroundCheckRadius = .05f;
 
     public delegate void PlayerDiedEventHandler();
     public event PlayerDiedEventHandler OnPlayerDied;
@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag(Tags.Ground) && !Physics2D.OverlapCircle(_groundDetector.position, GroundCheckRadius, _groundLayer))
+        if (other.gameObject.CompareTag(Tags.Ground))
         {
             _isGrounded = false;
         }
