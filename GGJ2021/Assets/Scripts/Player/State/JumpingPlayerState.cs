@@ -7,6 +7,8 @@ namespace Player.State
     {
         private readonly PlayerStateProvider _playerStateProvider;
 
+        private float _startTime;
+
         public JumpingPlayerState(
             PlayerController playerController,
             InputHandler inputHandler,
@@ -22,6 +24,9 @@ namespace Player.State
         {
             if (PlayerController.IsFalling)
                 return TransitionToState(_playerStateProvider.GetFallingState());
+
+            if (HasJumped() && PlayerController.IsGrounded)
+                return TransitionToState(_playerStateProvider.GetIdleState());
             
             PlayerController.SetMovement(new Vector2(InputHandler.GetHorizontalAxisValue(), 0));
 
@@ -36,6 +41,13 @@ namespace Player.State
         protected override void InitializeState()
         {
             PlayerController.Jump();
+            _startTime = Time.time;
+        }
+
+        private bool HasJumped()
+        {
+            const float minJumpLengthMs = .2f;
+            return Time.time - _startTime > minJumpLengthMs;
         }
     }
 }

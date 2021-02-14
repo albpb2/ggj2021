@@ -8,8 +8,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private const float GroundCheckRadius = .05f;
-
     public delegate void PlayerDiedEventHandler();
     public event PlayerDiedEventHandler OnPlayerDied;
     
@@ -17,13 +15,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _jumpForce = 1;
     [SerializeField] private int _healthPoints = 100;
     [SerializeField] private float _maxFallDistance;
-    [SerializeField] private Transform _groundDetector;
+    [SerializeField] private float _minFallVelocity = .2f;
     [SerializeField] private Transform _shootingPoint;
-    [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private Gun _equippedGun;
     [SerializeField] private Collider2D _hitbox;
     [SerializeField] private Collider2D _crouchedHitbox;
-    
+
     [Header("Event emitters")]
     [SerializeField] private StudioEventEmitter _jumpEventEmitter;
     [SerializeField] private StudioEventEmitter _teleportEventemitter;
@@ -35,15 +32,15 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private Animator _animator;
     private Light _light;
+    private PlayerGroundChecker _groundChecker;
 
     private IPlayerState _state;
     private Vector2 _movement;
-    private bool _isGrounded;
     private bool _lookingRight;
     private bool _isLanding;
 
-    public bool IsGrounded => _isGrounded;
-    public bool IsFalling => !_isGrounded && _rigidbody.velocity.y < -GlobalConstants.FloatTolerance;
+    public bool IsGrounded => _groundChecker.IsGrounded;
+    public bool IsFalling => !IsGrounded && _rigidbody.velocity.y < -_minFallVelocity;
     public bool IsLanding => _isLanding;
     public Vector2 Velocity => _rigidbody.velocity;
     public Gun EquippedGun => _equippedGun;
@@ -57,13 +54,13 @@ public class PlayerController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _light = GetComponentInChildren<Light>();
+        _groundChecker = GetComponentInChildren<PlayerGroundChecker>();
     }
 
     private void Start()
     {
         _teleportEventemitter.Play();
         PlayAnimationOnce(PlayerAnimationTriggers.Teleport);
-        _isGrounded = true;
         _lookingRight = true;
     }
 
@@ -81,22 +78,6 @@ public class PlayerController : MonoBehaviour
         var horizontalVelocity = _movement.x * _velocity;
         _rigidbody.velocity = new Vector2(horizontalVelocity, _rigidbody.velocity.y);
         FixOrientation();
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag(Tags.Ground) && Physics2D.OverlapCircle(_groundDetector.position, GroundCheckRadius, _groundLayer))
-        {
-            _isGrounded = true;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag(Tags.Ground))
-        {
-            _isGrounded = false;
-        }
     }
 
     public void Activate()
