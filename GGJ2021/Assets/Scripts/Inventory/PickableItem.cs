@@ -1,4 +1,5 @@
-﻿using Input;
+﻿using FMODUnity;
+using Input;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,6 +9,7 @@ namespace Inventory
     {
         [SerializeField] private UnityEvent OnObjectPicked;
         [SerializeField] private string _itemNameForDisplayText;
+        [SerializeField] private StudioEventEmitter _onPickEventEmitter;
 
         private InGameTextManager _inGameTextManager;
         private InputHandler _inputHandler;
@@ -45,7 +47,10 @@ namespace Inventory
 
         public void PickItem()
         {
+            PlayOnPickSound();
+            
             OnObjectPicked?.Invoke();
+            
             Destroy(gameObject);
         }
 
@@ -53,5 +58,13 @@ namespace Inventory
             
 
         private bool ShouldPickItem() => _canBePicked && _inputHandler.IsFire3Pressed();
+
+        private void PlayOnPickSound()
+        {
+            if (_onPickEventEmitter != null)
+            {
+                _onPickEventEmitter.Play();
+            }
+        }
     }
 }
