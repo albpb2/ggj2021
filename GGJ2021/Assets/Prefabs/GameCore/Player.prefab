@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/SFX/door_open
+  Event: event:/SFX/player_teleport
   PlayEvent: 0
   StopEvent: 0
   AllowFadeout: 1
@@ -318,6 +318,7 @@ MonoBehaviour:
   _jumpForce: 3
   _healthPoints: 100
   _maxFallDistance: 1.5
+  _minFallVelocity: 0.2
   _shootingPoint: {fileID: 499576424}
   _equippedGun: {fileID: 0}
   _hitbox: {fileID: 2190497989525156979}
