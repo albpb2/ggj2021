@@ -5303,7 +5303,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7639188042169428878, guid: 9ab3880cc1e72c14187603e1ec31eaab, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 9.720093
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7639188042169428878, guid: 9ab3880cc1e72c14187603e1ec31eaab, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -129
       objectReference: {fileID: 0}
     - target: {fileID: 7639188042258436220, guid: 9ab3880cc1e72c14187603e1ec31eaab, type: 3}
       propertyPath: m_Name
@@ -11480,6 +11484,10 @@ PrefabInstance:
     - target: {fileID: 3368237868343346750, guid: 0943d0154a2dfe049b1e29e3de72feac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906182653927566133, guid: 0943d0154a2dfe049b1e29e3de72feac, type: 3}
+      propertyPath: Event
+      value: event:/SFX/player_teleport
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0943d0154a2dfe049b1e29e3de72feac, type: 3}

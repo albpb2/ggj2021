@@ -109,6 +109,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1000
+--- !u!114 &-774164868169956541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/player_teleport
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/player_teleport
+  guid: c89978c762349b4192b611e597d7cc66
+  Banks:
+  - {fileID: 4881116481025138592}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,13 +158,40 @@ MonoBehaviour:
   - {fileID: 1076700213442479188}
   - {fileID: -3584553950743902803}
   - {fileID: 7745869543218040389}
+  - {fileID: 437286758063620205}
+  - {fileID: 4144816155830572517}
+  - {fileID: 5937502101065875459}
+  - {fileID: -774164868169956541}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4881116481025138592}
   StringsBanks:
   - {fileID: 6106518718057860587}
-  stringsBankWriteTime: 637477086774717861
+  stringsBankWriteTime: 637495325573862684
   cacheVersion: 4
+--- !u!114 &437286758063620205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/take_gun
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/take_gun
+  guid: 6b100aff44c3ea40a81061be4d9b96e7
+  Banks:
+  - {fileID: 4881116481025138592}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1250
 --- !u!114 &1076700213442479188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +238,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 500
+--- !u!114 &4144816155830572517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/door_button
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/door_button
+  guid: 7e0bf5689e0ac5408b73fc150959aae2
+  Banks:
+  - {fileID: 4881116481025138592}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 940
 --- !u!114 &4343076455554861271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,7 +298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FMODBuild/Master.bank
   Name: Master
-  lastModified: 637477086774707851
+  lastModified: 637495325573862684
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -275,6 +348,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1250
+--- !u!114 &5937502101065875459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/take_card
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/take_card
+  guid: b0be8a9e8774984ca387c5e48b1903b0
+  Banks:
+  - {fileID: 4881116481025138592}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1000
 --- !u!114 &6106518718057860587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,11 +385,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FMODBuild/Master.strings.bank
   Name: Master.strings
-  lastModified: 637477086774717861
+  lastModified: 637495325573862684
   LoadResult: 0
   FileSizes:
   - Name: 
-    Value: 1188
+    Value: 1366
   Exists: 1
 --- !u!114 &7465113569464287494
 MonoBehaviour:
